@@ -1,0 +1,3 @@
+export const soft = { after: 'Adobe After Effects', photoshop: 'Adobe Photoshop', premiere: 'Adobe Premiere Pro', c4d: 'Cinema 4D', octane: 'Octane Render', kitbash: 'KitBash 3D', quixel: 'Quixel Bridge', houdini: 'Houdini' }
+export const work = { cadrage: 'Cadrage', capta: 'Captation', drphoto: 'Direction de la photographie', fx: 'Effets Spéciaux', montage: 'Montage vidéo', storyboard: 'Storyboarding', etalo: 'Étalonnage' }
+export const category = { clip: 'Clip musical', aftermovie: 'Aftermovie', trailer: 'Trailer', travel: 'Voyage' }
