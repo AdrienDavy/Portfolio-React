@@ -1,14 +1,14 @@
 import { soft, work, category } from '../keywordList.js';
-import dressedThumb from '@thumbnails/dressed_like_a_naked_soul.png'
-import charlie from '@thumbnails/charlie.png'
-import dantesk from '@thumbnails/dantesk.png'
-import reperkusound from '@thumbnails/reperkusound.png'
-import bassodrome from '@thumbnails/bassodrome.png'
-import sygma from '@thumbnails/sygma.png'
-import vietnam from '@thumbnails/vietnam.png'
-import whitsundays from '@thumbnails/whitsundays.png'
-import greatOceanRoad from '@thumbnails/great_ocean_road.png'
-import arolla from '@thumbnails/arolla.png'
+import dressedThumb from '@videoThumbnails/dressed_like_a_naked_soul.png'
+import charlie from '@videoThumbnails/charlie.png'
+import dantesk from '@videoThumbnails/dantesk.png'
+import reperkusound from '@videoThumbnails/reperkusound.png'
+import bassodrome from '@videoThumbnails/bassodrome.png'
+import sygma from '@videoThumbnails/sygma.png'
+import vietnam from '@videoThumbnails/vietnam.png'
+import whitsundays from '@videoThumbnails/whitsundays.png'
+import greatOceanRoad from '@videoThumbnails/great_ocean_road.png'
+import arolla from '@videoThumbnails/arolla.png'
 const videoLibrary = [
   {
     id: 1,
