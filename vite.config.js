@@ -12,7 +12,9 @@ export default defineConfig({
       '@pages': path.resolve(__dirname, 'src/pages'),
       '@components': path.resolve(__dirname, 'src/components'),
       '@videos': path.resolve(__dirname, 'src/assets/videos'),
+      '@cgi': path.resolve(__dirname, 'src/assets/cgi'),
       '@videoThumbnails': path.resolve(__dirname, 'src/assets/videos/videoThumbnails'),
+      '@cgiThumbnails': path.resolve(__dirname, 'src/assets/cgi/cgiThumbnails'),
     },
   },
 })

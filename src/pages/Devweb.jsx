@@ -1,7 +1,7 @@
 const Devweb = () => {
   return (
     <div>
-      Dev Web
+      Devweb
     </div>
   )
 }

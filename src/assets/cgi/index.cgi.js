@@ -8,7 +8,8 @@ import blackHoleCity from '@cgiThumbnails/black_hole_city.png';
 import luxuryRoom from '@cgiThumbnails/luxury_room.png';
 import abstractYolines from '@cgiThumbnails/abstract_yolines.png';
 import psychedelicVectron from '@cgiThumbnails/psychedelic_vectron.png';
-const videoLibrary = [
+const cgiLibrary = [
+
   {
     id: 1,
     number: "01",
@@ -110,4 +111,4 @@ const videoLibrary = [
   }
 ]
 
-export default videoLibrary 
+export default cgiLibrary 

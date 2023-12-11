@@ -5,11 +5,10 @@ import Devweb from "@pages/Devweb";
 import Videos from "@pages/Videos";
 import Contact from "@pages/Contact";
 import Navbar from "@components/Navbar";
-import VideoPlayer from "@components/VideoPlayer";
+
 function App() {
   return (
     <main>
-      <VideoPlayer />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
