@@ -10,11 +10,12 @@ const VideoPlayer = () => {
   const libraryToDisplay = isCgiPage ? cgiLibrary : videoLibrary;
   const [selectedVideo, setSelectedVideo] = useState(isCgiPage ? cgiLibrary[0] : videoLibrary[0]);
   const videoRef = useRef(null);
-
+  console.log(videoRef);
 
   useEffect(() => {
-    if (selectedVideo !== null) {
-      videoRef.current = selectedVideo.video;
+    if (videoRef.current) {
+      videoRef.current.src = selectedVideo.video;
+      videoRef.current.load();
     }
   }, [selectedVideo]);
 
@@ -22,32 +23,39 @@ const VideoPlayer = () => {
     setSelectedVideo(video);
   };
 
+  const handlePlayButton = () => {
+    videoRef.current.play();
+  };
+
 
   return (
     <div style={{ background: "black" }}>
       <div style={{ position: "fixed", background: "blue" }}>
         {selectedVideo && (
-          <div ref={videoRef}>
+          <div>
+            <button onClick={() => handlePlayButton()}>Play</button>
             <p>{selectedVideo?.number}</p>
             <h2>{selectedVideo?.title}</h2>
-            <img src={selectedVideo?.thumbnail} alt={selectedVideo?.title} style={{ opacity: "0", width: "500px", height: "auto" }} />
-            <iframe title={selectedVideo?.title} src={selectedVideo?.video} allowFullScreen />
+            <img src={selectedVideo?.thumbnail} alt={selectedVideo?.title} style={{ opacity: "0.5", width: "500px", height: "auto" }} />
+            <video ref={videoRef} src={selectedVideo?.video} muted controls width="400" />
           </div>
         )}
       </div>
-      {libraryToDisplay.map((video) => (
-        <div onClick={() => handleClickVideo(video)} key={video.id} style={{ background: "red", margin: "20px 0" }}>
-          <p>{video?.number}</p>
-          <h2>{video?.title}</h2>
-          <h4>{video?.year} </h4>
-          <p>{video?.description}</p>
-          <h3>{video?.work ? video.work.join(" | ") : null} </h3>
-          <h3>{video?.software.join(" | ")} </h3>
-          <img src={video?.thumbnail} alt={video?.title} style={{ width: "500px", height: "auto" }} />
-        </div>
-      )
-      )}
-    </div>
+      {
+        libraryToDisplay.map((video) => (
+          <div onClick={() => handleClickVideo(video)} key={video.id} style={{ background: "red", margin: "20px 0" }}>
+            <p>{video?.number}</p>
+            <h2>{video?.title}</h2>
+            <h4>{video?.year} </h4>
+            <p>{video?.description}</p>
+            <h3>{video?.work ? video.work.join(" | ") : null} </h3>
+            <h3>{video?.software.join(" | ")} </h3>
+            <img src={video?.thumbnail} alt={video?.title} style={{ width: "500px", height: "auto" }} />
+          </div>
+        )
+        )
+      }
+    </div >
   );
 };
 

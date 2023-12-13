@@ -7,7 +7,17 @@ import butterfly from '@cgiThumbnails/butterfly.png';
 import blackHoleCity from '@cgiThumbnails/black_hole_city.png';
 import luxuryRoom from '@cgiThumbnails/luxury_room.png';
 import abstractYolines from '@cgiThumbnails/abstract_yolines.png';
-import psychedelicVectron from '@cgiThumbnails/psychedelic_vectron.png';
+import psychedelikVectron from '@cgiThumbnails/psychedelik_vectron.png';
+import abstractYolinesClip from '@cgiSources/abstractYolines.mp4';
+import blackHoleCityClip from '@cgiSources/blackHoleCity.mp4';
+import butterflyClip from '@cgiSources/butterfly.mp4';
+import gazMaskClip from '@cgiSources/gazMask.mp4';
+import luxuryRoomClip from '@cgiSources/luxuryRoom.mp4';
+import psychedelikVectronClip from '@cgiSources/psychedelikVectron.mp4';
+import templeOnMarsClip from '@cgiSources/templeOnMars.mp4';
+import thunderWizardClip from '@cgiSources/thunderWizard.mp4';
+import tlouMainMenuClip from '@cgiSources/tlouMainMenu.mp4';
+
 const cgiLibrary = [
 
   {
@@ -19,7 +29,7 @@ const cgiLibrary = [
     category: [category.art],
     year: 2021,
     thumbnail: templeOnMars,
-    video: "https://www.youtube.com/embed/Ducj6Y-B7nM"
+    video: templeOnMarsClip
   },
   {
     id: 2,
@@ -30,7 +40,7 @@ const cgiLibrary = [
     category: [category.art],
     year: 2021,
     thumbnail: thunderWizard,
-    video: "https://www.youtube.com/embed/QmxS2-ER_Tc"
+    video: thunderWizardClip
   },
   {
     id: 3,
@@ -41,7 +51,7 @@ const cgiLibrary = [
     category: [category.art],
     year: 2021,
     thumbnail: gazMask,
-    video: "https://www.youtube.com/embed/xuh0AbK8_ws"
+    video: gazMaskClip
   },
   {
     id: 4,
@@ -52,7 +62,7 @@ const cgiLibrary = [
     category: [category.art],
     year: 2022,
     thumbnail: tlouMenu,
-    video: "https://www.youtube.com/embed/IgCmGsaSFyw"
+    video: tlouMainMenuClip
   },
   {
     id: 5,
@@ -63,7 +73,7 @@ const cgiLibrary = [
     category: [category.art],
     year: 2021,
     thumbnail: butterfly,
-    video: "https://www.youtube.com/embed/3zlf1RqE8B4"
+    video: butterflyClip
   },
   {
     id: 6,
@@ -74,7 +84,7 @@ const cgiLibrary = [
     category: [category.art],
     year: 2022,
     thumbnail: blackHoleCity,
-    video: "https://www.youtube.com/embed/_QZOEdx8qAY"
+    video: blackHoleCityClip
   },
   {
     id: 7,
@@ -85,7 +95,7 @@ const cgiLibrary = [
     category: [category.art],
     year: 2022,
     thumbnail: luxuryRoom,
-    video: "https://www.youtube.com/embed/BmdyqzcAyrY"
+    video: luxuryRoomClip
   },
   {
     id: 8,
@@ -96,7 +106,7 @@ const cgiLibrary = [
     category: [category.art],
     year: 2022,
     thumbnail: abstractYolines,
-    video: "https://www.youtube.com/embed/57FBeFryTRk"
+    video: abstractYolinesClip
   },
   {
     id: 9,
@@ -106,8 +116,8 @@ const cgiLibrary = [
     software: [soft.c4d, soft.octane, soft.after],
     category: [category.art],
     year: 2021,
-    thumbnail: psychedelicVectron,
-    video: "https://www.youtube.com/embed/NER56dkBJfE"
+    thumbnail: psychedelikVectron,
+    video: psychedelikVectronClip
   }
 ]
 

@@ -1,14 +1,27 @@
 import { soft, work, category } from '../keywordList.js';
-import dressedThumb from '@videoThumbnails/dressed_like_a_naked_soul.png'
-import charlie from '@videoThumbnails/charlie.png'
-import dantesk from '@videoThumbnails/dantesk.png'
-import reperkusound from '@videoThumbnails/reperkusound.png'
-import bassodrome from '@videoThumbnails/bassodrome.png'
-import sygma from '@videoThumbnails/sygma.png'
-import vietnam from '@videoThumbnails/vietnam.png'
-import whitsundays from '@videoThumbnails/whitsundays.png'
-import greatOceanRoad from '@videoThumbnails/great_ocean_road.png'
-import arolla from '@videoThumbnails/arolla.png'
+import dressedThumb from '@videoThumbnails/dressed_like_a_naked_soul.png';
+import charlie from '@videoThumbnails/charlie.png';
+import maroc from '@videoThumbnails/maroc.png';
+import dantesk from '@videoThumbnails/dantesk.png';
+import reperkusound from '@videoThumbnails/reperkusound.png';
+import bassodrome from '@videoThumbnails/bassodrome.png';
+import sygma from '@videoThumbnails/sygma.png';
+import vietnam from '@videoThumbnails/vietnam.png';
+import whitsundays from '@videoThumbnails/whitsundays.png';
+import greatOceanRoad from '@videoThumbnails/great_ocean_road.png';
+import arolla from '@videoThumbnails/arolla.png';
+import alienCeremonyClip from '@videoSources/alienCeremony.mp4';
+import arollaClip from '@videoSources/arolla.mp4';
+import bassodromeClip from '@videoSources/bassodrome.mp4';
+import danteskClip from '@videoSources/dantesk.mp4';
+import dressedLikeaNakedSoulClip from '@videoSources/dressedLikeaNakedSoul.mp4';
+import greatOceanRoadClip from '@videoSources/greatOceanRoad.mp4';
+import marocClip from '@videoSources/maroc.mp4';
+import mCharlieClip from '@videoSources/mCharlie.mp4';
+import reperkusoundClip from '@videoSources/reperkusound.mp4';
+import vietnamClip from '@videoSources/vietnam.mp4';
+import whitsundaysClip from '@videoSources/whitsundays.mp4';
+
 const videoLibrary = [
   {
     id: 1,
@@ -20,7 +33,7 @@ const videoLibrary = [
     category: [category.clip],
     year: 2015,
     thumbnail: dressedThumb,
-    video: "https://www.youtube.com/embed/15i39WF7QA8"
+    video: dressedLikeaNakedSoulClip
   },
   {
     id: 2,
@@ -32,7 +45,7 @@ const videoLibrary = [
     category: [category.clip],
     year: 2016,
     thumbnail: charlie,
-    video: "https://www.youtube.com/embed/wT5VEkvqCdc"
+    video: mCharlieClip
   },
   {
     id: 3,
@@ -44,7 +57,7 @@ const videoLibrary = [
     category: [category.aftermovie],
     year: 2015,
     thumbnail: dantesk,
-    video: "https://www.youtube.com/embed/8rWluVbIlKA"
+    video: danteskClip
   },
   {
     id: 4,
@@ -56,7 +69,7 @@ const videoLibrary = [
     category: [category.aftermovie],
     year: 2015,
     thumbnail: reperkusound,
-    video: "https://www.youtube.com/embed/UW9CjI1XZQQ"
+    video: reperkusoundClip
   },
   {
     id: 5,
@@ -68,7 +81,7 @@ const videoLibrary = [
     category: [category.liveReport],
     year: 2015,
     thumbnail: bassodrome,
-    video: "https://www.youtube.com/embed/cezSdKJEsiU"
+    video: bassodromeClip
   },
   {
     id: 6,
@@ -80,7 +93,7 @@ const videoLibrary = [
     category: [category.aftermovie],
     year: 2016,
     thumbnail: sygma,
-    video: "https://www.youtube.com/embed/YPun_RZc62E"
+    video: alienCeremonyClip
   },
   {
     id: 7,
@@ -92,7 +105,7 @@ const videoLibrary = [
     category: [category.travel],
     year: 2019,
     thumbnail: vietnam,
-    video: "https://www.youtube.com/embed/TcGwQQMH4qw"
+    video: vietnamClip
   },
   {
     id: 8,
@@ -103,8 +116,8 @@ const videoLibrary = [
     work: [work.cadrage, work.montage, work.fx, work.etalo],
     category: [category.travel],
     year: 2019,
-    thumbnail: vietnam,
-    video: "https://www.youtube.com/embed/TcGwQQMH4qw"
+    thumbnail: maroc,
+    video: marocClip
   },
   {
     id: 9,
@@ -116,7 +129,7 @@ const videoLibrary = [
     category: [category.travel],
     year: 2019,
     thumbnail: whitsundays,
-    video: "https://www.youtube.com/embed/XOw0sLW8e0c"
+    video: whitsundaysClip
   },
   {
     id: 10,
@@ -128,7 +141,7 @@ const videoLibrary = [
     category: [category.travel],
     year: 2019,
     thumbnail: greatOceanRoad,
-    video: "https://www.youtube.com/embed/dULoxNsVhP8"
+    video: greatOceanRoadClip
   },
   {
     id: 11,
@@ -140,7 +153,7 @@ const videoLibrary = [
     category: [category.travel],
     year: 2020,
     thumbnail: arolla,
-    video: "https://www.youtube.com/embed/Wu8aTQr1xw4"
+    video: arollaClip
   },
 ]
 

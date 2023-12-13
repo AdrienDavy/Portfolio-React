@@ -15,6 +15,8 @@ export default defineConfig({
       '@cgi': path.resolve(__dirname, 'src/assets/cgi'),
       '@videoThumbnails': path.resolve(__dirname, 'src/assets/videos/videoThumbnails'),
       '@cgiThumbnails': path.resolve(__dirname, 'src/assets/cgi/cgiThumbnails'),
+      '@videoSources': path.resolve(__dirname, 'src/assets/videos/videoSources'),
+      '@cgiSources': path.resolve(__dirname, 'src/assets/cgi/cgiSources'),
     },
   },
 })
