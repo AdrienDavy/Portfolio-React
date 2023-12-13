@@ -1,7 +1,10 @@
+import VideoPlayer from "@components/VideoPlayer";
+
 const Cgi = () => {
   return (
     <div>
       CGI
+      <VideoPlayer />
     </div>
   )
 }

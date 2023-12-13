@@ -5,6 +5,7 @@ import Devweb from "@pages/Devweb";
 import Videos from "@pages/Videos";
 import Contact from "@pages/Contact";
 import Navbar from "@components/Navbar";
+
 function App() {
   return (
     <main>
