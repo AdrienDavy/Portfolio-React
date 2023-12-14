@@ -1,7 +1,9 @@
+import FormTemplate from "@components/FormTemplate"
+
 const Contact = () => {
   return (
     <div>
-      Contact
+      <FormTemplate />
     </div>
   )
 }

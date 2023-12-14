@@ -5,4 +5,39 @@
   box-sizing: border-box;
   list-style-type: none;
   text-decoration: none;
+}
+
+form {
+  display: grid;
+  width: 50%;
+  min-width: 300px;
+  max-width: 600px;
+  margin: 0 auto;
+  gap: 20px;
+  grid-template-areas: "name email" "message message" "submit submit";
+}
+form input,
+form textarea {
+  border: none;
+  border-bottom: 1px solid #0d0d0d;
+}
+form input:last-child,
+form textarea:last-child {
+  grid-area: submit;
+  grid-row: span2;
+  width: 50%;
+  margin: 0 auto;
+  border: none;
+}
+
+#name {
+  grid-area: name;
+}
+
+#email {
+  grid-area: email;
+}
+
+textarea {
+  grid-area: message;
 }/*# sourceMappingURL=index.css.map */
