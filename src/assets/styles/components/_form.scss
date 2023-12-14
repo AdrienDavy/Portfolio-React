@@ -1,0 +1,36 @@
+form {
+  display: grid;
+  width: 50%;
+  min-width: 300px;
+  max-width: 600px;
+  margin: 0 auto;
+  gap: 20px;
+  grid-template-areas:
+    'name email'
+    'message message'
+    'submit submit';
+
+  input,
+  textarea {
+    border: none;
+    border-bottom: 1px solid $secondary;
+
+    &:last-child {
+      grid-area: submit;
+      grid-row: span2;
+      width: 50%;
+      margin: 0 auto;
+      border: none;
+    }
+  }
+}
+
+#name {
+  grid-area: name;
+}
+#email {
+  grid-area: email;
+}
+textarea {
+  grid-area: message;
+}
