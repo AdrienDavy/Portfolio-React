@@ -1,4 +1,9 @@
 @import './settings';
+@import './utils/mixins';
+@import './utils/variables';
+@import './components/navbar';
 @import './components/buttons';
 @import './components/form';
-@import './variables';
+@import './pages/app';
+@import './pages/home';
+@import './pages/contact';

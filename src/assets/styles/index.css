@@ -7,7 +7,165 @@
   text-decoration: none;
 }
 
+header {
+  width: 100dvw;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: fixed;
+  bottom: 20px;
+  z-index: 100;
+}
+header .unclicked:not(#logoLink) {
+  background: rgba(0, 183, 219, 0.1);
+  box-shadow: 3px 3px 6px -1px rgba(0, 0, 0, 0.15);
+  -webkit-backdrop-filter: blur(2.6500000954px);
+          backdrop-filter: blur(2.6500000954px);
+  width: 200px;
+  height: 36px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f2e6d8;
+  font-family: "novecento-sans", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 0.9rem;
+  padding-left: 0.9rem;
+  transition: all 350ms ease;
+  overflow: hidden;
+  position: relative;
+}
+@media screen and (max-width: 992px) {
+  header .unclicked:not(#logoLink) {
+    font-size: 0.8rem;
+    letter-spacing: 0.6rem;
+    width: 140px;
+    height: 30px;
+  }
+}
+@media screen and (max-width: 425px) {
+  header .unclicked:not(#logoLink) {
+    font-size: 0.9rem;
+    letter-spacing: 0.4rem;
+    width: 120px;
+  }
+}
+header .unclicked:not(#logoLink) span {
+  background: rgba(0, 183, 219, 0.5);
+  box-shadow: 0 0 10px 16px rgba(0, 183, 219, 0.5);
+  -webkit-backdrop-filter: blur(2.6500000954px);
+          backdrop-filter: blur(2.6500000954px);
+  width: 200px;
+  height: 180px;
+  transform: translate(-50%, 120%);
+  flex-shrink: 0;
+  position: absolute;
+  rotate: 45deg;
+  transition: all 550ms cubic-bezier(0, 0.44, 0.33, 0.99);
+}
+header .unclicked:not(#logoLink):hover {
+  box-shadow: 4px 4px 16px 1px rgba(0, 0, 0, 0.15);
+}
+header .unclicked:not(#logoLink):hover > span {
+  transform: translate(0, 0);
+}
+header .clicked {
+  background: rgba(0, 183, 219, 0.5);
+  box-shadow: 3px 3px 6px -1px rgba(0, 0, 0, 0.15);
+  -webkit-backdrop-filter: blur(2.6500000954px);
+          backdrop-filter: blur(2.6500000954px);
+  width: 200px;
+  height: 36px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f2e6d8;
+  font-family: "novecento-sans", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 0.9rem;
+  padding-left: 0.9rem;
+  transition: all 350ms ease;
+  overflow: hidden;
+  position: relative;
+}
+@media screen and (max-width: 992px) {
+  header .clicked {
+    font-size: 0.8rem;
+    letter-spacing: 0.6rem;
+    width: 140px;
+    height: 30px;
+  }
+}
+@media screen and (max-width: 425px) {
+  header .clicked {
+    font-size: 0.9rem;
+    letter-spacing: 0.4rem;
+    width: 120px;
+  }
+}
+header .logo-clicked {
+  background: rgba(0, 183, 219, 0.5);
+  box-shadow: 3px 3px 6px -1px rgba(0, 0, 0, 0.15);
+  -webkit-backdrop-filter: blur(2.6500000954px);
+          backdrop-filter: blur(2.6500000954px);
+  width: 103px;
+  height: 83px;
+  flex-shrink: 0;
+  padding: 0.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+header .logo-clicked #logo-white {
+  display: none;
+}
+header .logo-unclicked {
+  width: 103px;
+  height: 83px;
+  flex-shrink: 0;
+  padding: 0.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+header .logo-unclicked:hover #logo-white {
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+header .logo-unclicked #logo {
+  display: none;
+}
+header #logo,
+header #logo-white {
+  position: absolute;
+  width: 70px;
+  height: auto;
+  transition: all 350ms ease;
+}
+@media screen and (max-width: 992px) {
+  header #logo,
+  header #logo-white {
+    height: 50px;
+  }
+}
+
 form {
+  position: absolute;
+  z-index: 100;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 20%);
   display: grid;
   width: 50%;
   min-width: 300px;
@@ -40,4 +198,28 @@ form textarea:last-child {
 
 textarea {
   grid-area: message;
+}
+
+main {
+  height: 100dvh;
+  width: 100dvw;
+}
+
+.home-container {
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-container {
+  position: relative;
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }/*# sourceMappingURL=index.css.map */

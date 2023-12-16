@@ -1,0 +1,16 @@
+@mixin align-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin tablette-only {
+  @media screen and (max-width: map-get($tabletteBreakpoint, desktop )) {
+    @content;
+  }
+}
+@mixin mobile-only {
+  @media screen and (max-width: map-get($mobileBreakpoint, desktop )) {
+    @content;
+  }
+}
