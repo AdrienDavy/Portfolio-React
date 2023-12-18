@@ -43,7 +43,10 @@ const FormTemplate = () => {
           <input type="email" name="email" id="email" required placeholder="johndoe@gmail.com" key="email" />
           <label htmlFor="message"></label>
           <textarea name="message" placeholder="Commentaires..." id="message" rows="5" cols="33" required />
-          <input type="submit" value="Envoyer" />
+          <button className="btn-secondary">
+            <p><input className='unclicked' type="submit" value="Envoyer" /></p>
+            <span></span>
+          </button>
         </form>
       </div>
       <div className="form-message"></div>

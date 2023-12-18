@@ -101,71 +101,6 @@ button {
   justify-content: space-evenly;
   align-items: center;
 }
-.navbar-container .overlay .unclicked:not(#logoLink) li {
-  background: rgba(1, 115, 138, 0.1);
-  box-shadow: 3px 3px 6px -1px rgba(13, 13, 13, 0.15);
-  -webkit-backdrop-filter: blur(2.6500000954px);
-          backdrop-filter: blur(2.6500000954px);
-  width: 200px;
-  height: 36px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #f2e6d8;
-  font-family: "novecento-sans", sans-serif;
-  text-transform: uppercase;
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 300;
-  line-height: normal;
-  letter-spacing: 0.9rem;
-  padding-left: 0.9rem;
-  transition: all 350ms ease;
-  overflow: hidden;
-  position: relative;
-}
-@media screen and (max-width: 1024px) {
-  .navbar-container .overlay .unclicked:not(#logoLink) li {
-    font-size: 0.8rem;
-    letter-spacing: 0.6rem;
-    padding-left: 0.6rem;
-    width: 140px;
-    height: 30px;
-  }
-}
-@media screen and (max-width: 992px) {
-  .navbar-container .overlay .unclicked:not(#logoLink) li {
-    font-size: 0.6rem;
-    letter-spacing: 0.4rem;
-    padding-left: 0.4rem;
-    width: 120px;
-    height: 20px;
-  }
-}
-.navbar-container .overlay .unclicked:not(#logoLink) li:hover {
-  box-shadow: 4px 4px 16px 1px rgba(0, 0, 0, 0.15);
-}
-.navbar-container .overlay .unclicked:not(#logoLink) li:hover > span {
-  transform: translate(0, 0);
-}
-.navbar-container .overlay .unclicked:not(#logoLink) li p {
-  z-index: 101;
-}
-.navbar-container .overlay .unclicked:not(#logoLink) li span {
-  background: rgba(1, 115, 138, 0.5);
-  box-shadow: 0 0 10px 16px rgba(1, 115, 138, 0.5);
-  -webkit-backdrop-filter: blur(2.6500000954px);
-          backdrop-filter: blur(2.6500000954px);
-  width: 200px;
-  height: 180px;
-  transform: translate(-50%, 120%);
-  flex-shrink: 0;
-  position: absolute;
-  rotate: 45deg;
-  transition: all 550ms cubic-bezier(0, 0.44, 0.33, 0.99);
-  z-index: 0;
-}
 .navbar-container .clicked li {
   background: rgba(0, 183, 219, 0.5);
   box-shadow: 3px 3px 6px -1px rgba(0, 0, 0, 0.15);
@@ -264,6 +199,163 @@ button {
   }
 }
 
+.btn-primary li {
+  background: rgba(1, 115, 138, 0.1);
+  box-shadow: 3px 3px 6px -1px rgba(13, 13, 13, 0.15);
+  -webkit-backdrop-filter: blur(2.6500000954px);
+          backdrop-filter: blur(2.6500000954px);
+  width: 200px;
+  height: 36px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f2e6d8;
+  font-family: "novecento-sans", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 0.9rem;
+  padding-left: 0.9rem;
+  transition: all 350ms ease;
+  overflow: hidden;
+  position: relative;
+}
+@media screen and (max-width: 1024px) {
+  .btn-primary li {
+    font-size: 0.8rem;
+    letter-spacing: 0.6rem;
+    padding-left: 0.6rem;
+    width: 140px;
+    height: 30px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .btn-primary li {
+    font-size: 0.6rem;
+    letter-spacing: 0.4rem;
+    padding-left: 0.4rem;
+    width: 120px;
+    height: 20px;
+  }
+}
+.btn-primary li:hover {
+  box-shadow: 4px 4px 16px 1px rgba(0, 0, 0, 0.15);
+}
+.btn-primary li:hover > span {
+  transform: translate(0, 0);
+}
+.btn-primary li p {
+  z-index: 101;
+}
+.btn-primary li span {
+  background: rgba(1, 115, 138, 0.5);
+  box-shadow: 0 0 10px 16px rgba(1, 115, 138, 0.5);
+  -webkit-backdrop-filter: blur(2.6500000954px);
+          backdrop-filter: blur(2.6500000954px);
+  width: 200px;
+  height: 180px;
+  transform: translate(-50%, 120%);
+  flex-shrink: 0;
+  position: absolute;
+  rotate: 45deg;
+  transition: all 550ms cubic-bezier(0, 0.44, 0.33, 0.99);
+  z-index: 0;
+}
+
+.btn-secondary {
+  grid-area: submit;
+  grid-row: span2;
+  margin: 0 auto;
+  cursor: pointer;
+  background: rgba(1, 115, 138, 0.1);
+  box-shadow: 3px 3px 6px -1px rgba(13, 13, 13, 0.15);
+  -webkit-backdrop-filter: blur(2.6500000954px);
+          backdrop-filter: blur(2.6500000954px);
+  width: 200px;
+  height: 36px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 350ms ease;
+  overflow: hidden;
+  position: relative;
+}
+@media screen and (max-width: 1024px) {
+  .btn-secondary {
+    width: 140px;
+    height: 30px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .btn-secondary {
+    width: 120px;
+    height: 20px;
+  }
+}
+.btn-secondary:hover {
+  box-shadow: 4px 4px 16px 1px rgba(0, 0, 0, 0.15);
+}
+.btn-secondary:hover > span {
+  transform: translate(0, 0);
+}
+.btn-secondary p {
+  z-index: 101;
+}
+.btn-secondary p input {
+  cursor: pointer;
+  color: #f2e6d8;
+  font-family: "novecento-sans", sans-serif;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 0.9rem;
+  padding-left: 0.9rem;
+  text-transform: uppercase;
+  border-bottom: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+@media screen and (max-width: 1024px) {
+  .btn-secondary p input {
+    font-size: 0.8rem;
+    letter-spacing: 0.6rem;
+    padding-left: 0.6rem;
+    width: 140px;
+    height: 30px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .btn-secondary p input {
+    font-size: 0.6rem;
+    letter-spacing: 0.4rem;
+    padding-left: 0.4rem;
+    width: 120px;
+    height: 20px;
+  }
+}
+.btn-secondary span {
+  background: rgba(1, 115, 138, 0.5);
+  box-shadow: 0 0 10px 16px rgba(1, 115, 138, 0.5);
+  -webkit-backdrop-filter: blur(2.6500000954px);
+          backdrop-filter: blur(2.6500000954px);
+  width: 200px;
+  height: 180px;
+  transform: translate(-50%, 120%);
+  flex-shrink: 0;
+  position: absolute;
+  rotate: 45deg;
+  transition: all 550ms cubic-bezier(0, 0.44, 0.33, 0.99);
+  z-index: 0;
+}
+
 .form-container {
   z-index: 50;
 }
@@ -313,14 +405,6 @@ button {
   border: none;
   border-bottom: 1px solid #0d0d0d;
   transition: all 350ms ease;
-}
-.form-container form input:last-child,
-.form-container form textarea:last-child {
-  grid-area: submit;
-  grid-row: span2;
-  width: 30%;
-  margin: 0 auto;
-  border: none;
 }
 
 #name {

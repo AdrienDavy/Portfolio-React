@@ -37,13 +37,6 @@
       border: none;
       border-bottom: 1px solid $secondary;
       transition: all 350ms ease;
-      &:last-child {
-        grid-area: submit;
-        grid-row: span2;
-        width: 30%;
-        margin: 0 auto;
-        border: none;
-      }
     }
   }
 }
