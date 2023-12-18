@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://use.typekit.net/wgm5loh.css");
 * {
   margin: 0;
@@ -263,30 +264,61 @@ button {
   }
 }
 
-form {
-  position: absolute;
-  z-index: 100;
-  left: 50%;
-  top: 0;
-  transform: translate(-50%, 20%);
+.form-container {
+  z-index: 50;
+}
+.form-container form {
   display: grid;
-  width: 50%;
-  min-width: 300px;
-  max-width: 600px;
   margin: 0 auto;
   gap: 20px;
+  width: 600px;
+  /* Supprimez la bordure d'outline pour les éléments input et textarea */
   grid-template-areas: "name email" "message message" "submit submit";
 }
-form input,
-form textarea {
+@media screen and (max-width: 660px) {
+  .form-container form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+.form-container form input::-moz-placeholder, .form-container form textarea::-moz-placeholder {
+  color: #9c9c9c;
+  font-family: "novecento-sans", sans-serif;
+}
+.form-container form input::placeholder,
+.form-container form textarea::placeholder {
+  color: #9c9c9c;
+  font-family: "novecento-sans", sans-serif;
+}
+@media screen and (max-width: 660px) {
+  .form-container form input::-moz-placeholder, .form-container form textarea::-moz-placeholder {
+    text-align: center;
+  }
+  .form-container form input::placeholder,
+  .form-container form textarea::placeholder {
+    text-align: center;
+  }
+}
+.form-container form input:focus,
+.form-container form textarea:focus {
+  outline: none;
+  border-bottom: 1px solid #01738a;
+}
+.form-container form input,
+.form-container form textarea {
+  background: transparent;
+  color: #f2e6d8;
   border: none;
   border-bottom: 1px solid #0d0d0d;
+  transition: all 350ms ease;
 }
-form input:last-child,
-form textarea:last-child {
+.form-container form input:last-child,
+.form-container form textarea:last-child {
   grid-area: submit;
   grid-row: span2;
-  width: 50%;
+  width: 30%;
   margin: 0 auto;
   border: none;
 }
@@ -299,8 +331,37 @@ form textarea:last-child {
   grid-area: email;
 }
 
-textarea {
+#message {
   grid-area: message;
+}
+
+.form-message {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 350ms ease;
+  z-index: 1;
+}
+.form-message.visible {
+  z-index: 1;
+  visibility: visible;
+  opacity: 1;
+  font-size: 1.2rem;
+  font-family: "novecento-sans", sans-serif;
+  letter-spacing: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+  display: grid;
+  place-items: center;
+  transition: opacity 350ms ease;
+}
+.form-message.visible .success {
+  color: rgb(87, 200, 0);
+}
+.form-message.visible .error {
+  color: rgb(255, 0, 0);
 }
 
 main {
@@ -325,4 +386,54 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+.contact-container .form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  width: 100dvw;
+  height: auto;
+  z-index: 1;
+  background: rgba(13, 13, 13, 0.5);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  padding-bottom: 20px;
+}
+@media screen and (max-width: 660px) {
+  .contact-container .form {
+    display: grid;
+    place-items: center;
+    height: auto;
+    top: 50%;
+    translate: 0 -50%;
+  }
+}
+.contact-container .form h1 {
+  margin: 50px 0;
+  text-align: center;
+  color: #f2e6d8;
+  font-family: "novecento-sans", sans-serif;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.6rem;
+  text-transform: uppercase;
+  z-index: 51;
+  position: relative;
+}
+@media screen and (max-width: 660px) {
+  .contact-container .form h1 {
+    font-size: 1rem;
+    letter-spacing: 1rem;
+    line-height: 1.5rem;
+    padding: 0 140px;
+  }
+}
+.contact-container video {
+  z-index: 0;
 }/*# sourceMappingURL=index.css.map */
