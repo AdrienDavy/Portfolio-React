@@ -1,41 +1,80 @@
-form {
-  position: absolute;
-  z-index: 100;
-  left: 50%;
-  top: 0;
-  transform: translate(-50%, 20%);
-  display: grid;
-  width: 50%;
-  min-width: 300px;
-  max-width: 600px;
-  margin: 0 auto;
-  gap: 20px;
-  grid-template-areas:
-    'name email'
-    'message message'
-    'submit submit';
+.form-container {
+  z-index: 50;
 
-  input,
-  textarea {
-    border: none;
-    border-bottom: 1px solid $secondary;
+  form {
+    display: grid;
+    margin: 0 auto;
+    gap: 20px;
+    width: 600px;
+    @include sm {
+      @include align-items;
+      flex-direction: column;
+    }
 
-    &:last-child {
-      grid-area: submit;
-      grid-row: span2;
-      width: 50%;
-      margin: 0 auto;
+    input::placeholder,
+    textarea::placeholder {
+      color: #9c9c9c;
+      font-family: $font;
+      @include sm {
+        text-align: center;
+      }
+    }
+    /* Supprimez la bordure d'outline pour les éléments input et textarea */
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-bottom: 1px solid $tertiary;
+    }
+    grid-template-areas:
+      'name email'
+      'message message'
+      'submit submit';
+
+    input,
+    textarea {
+      background: transparent;
+      color: $primary;
       border: none;
+      border-bottom: 1px solid $secondary;
+      transition: all 350ms ease;
     }
   }
 }
-
 #name {
   grid-area: name;
 }
 #email {
   grid-area: email;
 }
-textarea {
+#message {
   grid-area: message;
+}
+
+.form-message {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 350ms ease;
+  z-index: 1;
+  &.visible {
+    z-index: 1;
+    visibility: visible;
+    opacity: 1;
+    font-size: 1.2rem;
+    font-family: $font;
+    letter-spacing: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100dvw;
+    height: 100dvh;
+    display: grid;
+    place-items: center;
+    transition: opacity 350ms ease;
+    .success {
+      color: rgb(87, 200, 0);
+    }
+    .error {
+      color: rgb(255, 0, 0);
+    }
+  }
 }
