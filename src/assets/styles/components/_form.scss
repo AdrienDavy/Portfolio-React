@@ -1,4 +1,9 @@
 form {
+  position: absolute;
+  z-index: 100;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 20%);
   display: grid;
   width: 50%;
   min-width: 300px;

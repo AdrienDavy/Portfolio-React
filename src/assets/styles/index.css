@@ -7,7 +7,268 @@
   text-decoration: none;
 }
 
+button {
+  background: transparent !important;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.burger {
+  position: absolute;
+  z-index: 102;
+  top: 20px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+@media (min-width: 660px) {
+  .burger {
+    display: none;
+  }
+}
+.burger-icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: 10;
+}
+
+@media screen and (max-width: 660px) {
+  .background {
+    position: fixed;
+    z-index: 2;
+    aspect-ratio: 1/1;
+    height: 88px;
+    background: rgba(13, 13, 13, 0.8);
+    -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+    border-radius: 50%;
+    opacity: 0;
+    transition: 0.4s;
+    top: 20px;
+    right: 12px;
+  }
+  .background.open {
+    height: 300vh;
+    background: rgba(13, 13, 13, 0.8);
+    -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+    border-radius: 50%;
+    opacity: 1;
+    top: -100%;
+    right: -100%;
+    aspect-ratio: 1/1;
+  }
+}
+.navbar-container {
+  width: 100dvw;
+  position: fixed;
+  bottom: 20px;
+  z-index: 100;
+}
+@media screen and (max-width: 660px) {
+  .navbar-container {
+    height: 100dvh;
+    bottom: 0;
+    display: grid;
+    place-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+  }
+  .navbar-container.open {
+    height: 100dvh;
+    bottom: 0;
+    display: grid;
+    place-items: center;
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.4s ease-in-out;
+  }
+  .navbar-container .overlay {
+    height: 35dvh;
+    flex-flow: column wrap;
+  }
+}
+.navbar-container .overlay {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.navbar-container .overlay .unclicked:not(#logoLink) li {
+  background: rgba(1, 115, 138, 0.1);
+  box-shadow: 3px 3px 6px -1px rgba(13, 13, 13, 0.15);
+  -webkit-backdrop-filter: blur(2.6500000954px);
+          backdrop-filter: blur(2.6500000954px);
+  width: 200px;
+  height: 36px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f2e6d8;
+  font-family: "novecento-sans", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 0.9rem;
+  padding-left: 0.9rem;
+  transition: all 350ms ease;
+  overflow: hidden;
+  position: relative;
+}
+@media screen and (max-width: 1024px) {
+  .navbar-container .overlay .unclicked:not(#logoLink) li {
+    font-size: 0.8rem;
+    letter-spacing: 0.6rem;
+    padding-left: 0.6rem;
+    width: 140px;
+    height: 30px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .navbar-container .overlay .unclicked:not(#logoLink) li {
+    font-size: 0.6rem;
+    letter-spacing: 0.4rem;
+    padding-left: 0.4rem;
+    width: 120px;
+    height: 20px;
+  }
+}
+.navbar-container .overlay .unclicked:not(#logoLink) li:hover {
+  box-shadow: 4px 4px 16px 1px rgba(0, 0, 0, 0.15);
+}
+.navbar-container .overlay .unclicked:not(#logoLink) li:hover > span {
+  transform: translate(0, 0);
+}
+.navbar-container .overlay .unclicked:not(#logoLink) li p {
+  z-index: 101;
+}
+.navbar-container .overlay .unclicked:not(#logoLink) li span {
+  background: rgba(1, 115, 138, 0.5);
+  box-shadow: 0 0 10px 16px rgba(1, 115, 138, 0.5);
+  -webkit-backdrop-filter: blur(2.6500000954px);
+          backdrop-filter: blur(2.6500000954px);
+  width: 200px;
+  height: 180px;
+  transform: translate(-50%, 120%);
+  flex-shrink: 0;
+  position: absolute;
+  rotate: 45deg;
+  transition: all 550ms cubic-bezier(0, 0.44, 0.33, 0.99);
+  z-index: 0;
+}
+.navbar-container .clicked li {
+  background: rgba(0, 183, 219, 0.5);
+  box-shadow: 3px 3px 6px -1px rgba(0, 0, 0, 0.15);
+  -webkit-backdrop-filter: blur(2.6500000954px);
+          backdrop-filter: blur(2.6500000954px);
+  width: 200px;
+  height: 36px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f2e6d8;
+  font-family: "novecento-sans", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 0.9rem;
+  padding-left: 0.9rem;
+  transition: all 350ms ease;
+  overflow: hidden;
+  position: relative;
+}
+@media screen and (max-width: 1024px) {
+  .navbar-container .clicked li {
+    font-size: 0.8rem;
+    letter-spacing: 0.6rem;
+    padding-left: 0.6rem;
+    width: 140px;
+    height: 30px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .navbar-container .clicked li {
+    font-size: 0.6rem;
+    letter-spacing: 0.4rem;
+    padding-left: 0.4rem;
+    width: 120px;
+    height: 20px;
+  }
+}
+
+.logo-clicked li {
+  background: rgba(0, 183, 219, 0.5);
+  box-shadow: 3px 3px 6px -1px rgba(0, 0, 0, 0.15);
+  -webkit-backdrop-filter: blur(2.6500000954px);
+          backdrop-filter: blur(2.6500000954px);
+  width: 103px;
+  height: 83px;
+  flex-shrink: 0;
+  padding: 0.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.logo-clicked li #logo-white {
+  display: none;
+}
+@media screen and (max-width: 992px) {
+  .logo-clicked li {
+    width: 86px;
+    height: 63px;
+  }
+}
+
+.logo-unclicked li {
+  width: 103px;
+  height: 83px;
+  flex-shrink: 0;
+  padding: 0.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.logo-unclicked li:hover #logo-white {
+  filter: drop-shadow(0 0 10px rgba(242, 230, 216, 0.5));
+}
+.logo-unclicked li #logo {
+  display: none;
+}
+
+#logo,
+#logo-white {
+  position: absolute;
+  width: 70px;
+  height: auto;
+  transition: all 350ms ease;
+}
+@media screen and (max-width: 992px) {
+  #logo,
+  #logo-white {
+    height: 50px;
+  }
+}
+
 form {
+  position: absolute;
+  z-index: 100;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 20%);
   display: grid;
   width: 50%;
   min-width: 300px;
@@ -40,4 +301,28 @@ form textarea:last-child {
 
 textarea {
   grid-area: message;
+}
+
+main {
+  height: 100dvh;
+  width: 100dvw;
+}
+
+.home-container {
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-container {
+  position: relative;
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }/*# sourceMappingURL=index.css.map */
