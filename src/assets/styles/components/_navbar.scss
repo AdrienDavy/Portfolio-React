@@ -1,101 +1,197 @@
-header {
-  width: 100dvw;
+button {
+  background: transparent !important;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.burger {
+  position: absolute;
+  z-index: 102;
+  top: 20px;
+  right: 12px;
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
+  gap: 5px;
+
+  @media (min-width: 660px) {
+    display: none;
+  }
+
+  &-icon {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: 10;
+  }
+}
+@include sm {
+  .background {
+    position: fixed;
+    z-index: 2;
+    aspect-ratio: 1 / 1;
+    height: 88px;
+    background: rgba($secondary, 0.8);
+    backdrop-filter: blur(5px);
+    border-radius: 50%;
+    opacity: 0;
+    transition: 0.4s;
+    top: 20px;
+    right: 12px;
+
+    &.open {
+      height: 300vh;
+      background: rgba($secondary, 0.8);
+      backdrop-filter: blur(5px);
+      border-radius: 50%;
+      opacity: 1;
+      top: -100%;
+      right: -100%;
+      aspect-ratio: 1 / 1;
+    }
+  }
+}
+.navbar-container {
+  width: 100dvw;
   position: fixed;
   bottom: 20px;
   z-index: 100;
 
-  .unclicked:not(#logoLink) {
-    background: rgba(0, 183, 219, 0.1);
-    box-shadow: 3px 3px 6px -1px rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(2.6500000953674316px);
-    width: 200px;
-    height: 36px;
-    flex-shrink: 0;
-    @include align-items;
-    color: $primary;
-    font-family: $font;
-    text-transform: uppercase;
-    font-size: 1.125rem;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-    letter-spacing: 0.9rem;
-    padding-left: 0.9rem;
-    transition: all 350ms ease;
-    overflow: hidden;
-    position: relative;
+  @include sm {
+    height: 100dvh;
+    bottom: 0;
+    display: grid;
+    place-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+    &.open {
+      height: 100dvh;
+      bottom: 0;
+      display: grid;
+      place-items: center;
+      visibility: visible;
+      opacity: 1;
+      transition: all 0.4s ease-in-out;
+    }
+    .overlay {
+      height: 35dvh;
+      flex-flow: column wrap;
+    }
+  }
+  .overlay {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    .unclicked:not(#logoLink) {
+      li {
+        background: rgba($tertiary, 0.1);
+        box-shadow: 3px 3px 6px -1px rgba($secondary, 0.15);
+        backdrop-filter: blur(2.6500000953674316px);
+        width: 200px;
+        height: 36px;
+        flex-shrink: 0;
+        @include align-items;
+        color: $primary;
+        font-family: $font;
+        text-transform: uppercase;
+        font-size: 1.125rem;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        letter-spacing: 0.9rem;
+        padding-left: 0.9rem;
+        transition: all 350ms ease;
+        overflow: hidden;
+        position: relative;
 
-    @include tablette-only {
-      font-size: 0.8rem;
-      letter-spacing: 0.6rem;
-      width: 140px;
-      height: 30px;
-    }
+        @include xl {
+          font-size: 0.8rem;
+          letter-spacing: 0.6rem;
+          padding-left: 0.6rem;
+          width: 140px;
+          height: 30px;
+        }
 
-    @include mobile-only {
-      font-size: 0.9rem;
-      letter-spacing: 0.4rem;
-      width: 120px;
-    }
-    span {
-      background: rgba(0, 183, 219, 0.5);
-      box-shadow: 0 0 10px 16px rgba(0, 183, 219, 0.5);
-      backdrop-filter: blur(2.6500000953674316px);
-      width: 200px;
-      height: 180px;
-      transform: translate(-50%, 120%);
-      flex-shrink: 0;
-      position: absolute;
-      rotate: 45deg;
-      transition: all 550ms cubic-bezier(0, 0.44, 0.33, 0.99);
-    }
-
-    &:hover {
-      box-shadow: 4px 4px 16px 1px rgba(0, 0, 0, 0.15);
-    }
-    &:hover > span {
-      transform: translate(0, 0);
+        @include md {
+          font-size: 0.6rem;
+          letter-spacing: 0.4rem;
+          padding-left: 0.4rem;
+          width: 120px;
+          height: 20px;
+        }
+        &:hover {
+          box-shadow: 4px 4px 16px 1px rgba(0, 0, 0, 0.15);
+        }
+        &:hover > span {
+          transform: translate(0, 0);
+        }
+        p {
+          z-index: 101;
+        }
+        span {
+          background: rgba($tertiary, 0.5);
+          box-shadow: 0 0 10px 16px rgba($tertiary, 0.5);
+          backdrop-filter: blur(2.6500000953674316px);
+          width: 200px;
+          height: 180px;
+          transform: translate(-50%, 120%);
+          flex-shrink: 0;
+          position: absolute;
+          rotate: 45deg;
+          transition: all 550ms cubic-bezier(0, 0.44, 0.33, 0.99);
+          z-index: 0;
+        }
+      }
     }
   }
 
   .clicked {
-    background: rgba(0, 183, 219, 0.5);
-    box-shadow: 3px 3px 6px -1px rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(2.6500000953674316px);
-    width: 200px;
-    height: 36px;
-    flex-shrink: 0;
-    @include align-items;
-    color: $primary;
-    font-family: $font;
-    text-transform: uppercase;
-    font-size: 1.125rem;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-    letter-spacing: 0.9rem;
-    padding-left: 0.9rem;
-    transition: all 350ms ease;
-    overflow: hidden;
-    position: relative;
-    @include tablette-only {
-      font-size: 0.8rem;
-      letter-spacing: 0.6rem;
-      width: 140px;
-      height: 30px;
-    }
+    li {
+      background: rgba(0, 183, 219, 0.5);
+      box-shadow: 3px 3px 6px -1px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(2.6500000953674316px);
+      width: 200px;
+      height: 36px;
+      flex-shrink: 0;
+      @include align-items;
+      color: $primary;
+      font-family: $font;
+      text-transform: uppercase;
+      font-size: 1.125rem;
+      font-style: normal;
+      font-weight: 300;
+      line-height: normal;
+      letter-spacing: 0.9rem;
+      padding-left: 0.9rem;
+      transition: all 350ms ease;
+      overflow: hidden;
+      position: relative;
+      @include xl {
+        font-size: 0.8rem;
+        letter-spacing: 0.6rem;
+        padding-left: 0.6rem;
+        width: 140px;
+        height: 30px;
+      }
 
-    @include mobile-only {
-      font-size: 0.9rem;
-      letter-spacing: 0.4rem;
-      width: 120px;
+      @include md {
+        font-size: 0.6rem;
+        letter-spacing: 0.4rem;
+        padding-left: 0.4rem;
+        width: 120px;
+        height: 20px;
+      }
     }
   }
+}
+//LOGO -----------------------------------------------
 
-  .logo-clicked {
+.logo-clicked {
+  li {
     background: rgba(0, 183, 219, 0.5);
     box-shadow: 3px 3px 6px -1px rgba(0, 0, 0, 0.15);
     backdrop-filter: blur(2.6500000953674316px);
@@ -108,8 +204,15 @@ header {
     #logo-white {
       display: none;
     }
+    @include md {
+      width: 86px;
+      height: 63px;
+    }
   }
-  .logo-unclicked {
+}
+
+.logo-unclicked {
+  li {
     width: 103px;
     height: 83px;
     flex-shrink: 0;
@@ -119,22 +222,22 @@ header {
 
     &:hover {
       #logo-white {
-        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+        filter: drop-shadow(0 0 10px rgba($primary, 0.5));
       }
     }
     #logo {
       display: none;
     }
   }
+}
 
-  #logo,
-  #logo-white {
-    position: absolute;
-    width: 70px;
-    height: auto;
-    transition: all 350ms ease;
-    @include tablette-only {
-      height: 50px;
-    }
+#logo,
+#logo-white {
+  position: absolute;
+  width: 70px;
+  height: auto;
+  transition: all 350ms ease;
+  @include md {
+    height: 50px;
   }
 }

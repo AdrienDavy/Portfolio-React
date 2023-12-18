@@ -4,13 +4,23 @@
   justify-content: center;
 }
 
-@mixin tablette-only {
-  @media screen and (max-width: map-get($tabletteBreakpoint, desktop )) {
+@mixin xxl {
+  @media screen and (min-width: map-get($xlBreakpoint, desktop )) {
     @content;
   }
 }
-@mixin mobile-only {
-  @media screen and (max-width: map-get($mobileBreakpoint, desktop )) {
+@mixin xl {
+  @media screen and (max-width: map-get($xlBreakpoint, desktop )) {
+    @content;
+  }
+}
+@mixin md {
+  @media screen and (max-width: map-get($mdBreakpoint, desktop )) {
+    @content;
+  }
+}
+@mixin sm {
+  @media screen and (max-width: map-get($smBreakpoint, mobile )) {
     @content;
   }
 }

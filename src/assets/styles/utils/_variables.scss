@@ -3,9 +3,12 @@ $h1: normal 700 1.5rem/1.5rem $font, sans-serif;
 $h2: normal 200 1rem/1.5rem $font, sans-serif;
 $p: normal 200 1rem/1.5rem $font, sans-serif;
 
-$tabletteBreakpoint: (
+$xlBreakpoint: (
+  desktop: 1024px,
+);
+$mdBreakpoint: (
   desktop: 992px,
 );
-$mobileBreakpoint: (
-  desktop: 425px,
+$smBreakpoint: (
+  mobile: 660px,
 );
