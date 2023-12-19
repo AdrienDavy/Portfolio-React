@@ -30,22 +30,19 @@ const VideoPlayer = () => {
   }, [selectedVideo]);
 
 
-
   const handleClickVideo = (video) => {
     setSelectedVideo(video);
   };
 
-  const handlePlayButton = () => {
-    setTimeout(() => {
-      videoRef.current.play();
-    }, 150);
+  const handleTogglePlayPause = () => {
+    !playAnimation ?
+      setTimeout(() => {
+        videoRef.current.play();
+      }, 150) :
+      videoRef.current.pause();
+    setPlayAnimation(!playAnimation)
+  };
 
-    setPlayAnimation(!playAnimation)
-  };
-  const handlePauseButton = () => {
-    videoRef.current.pause();
-    setPlayAnimation(!playAnimation)
-  };
 
   return (
     <div>
@@ -83,14 +80,15 @@ const VideoPlayer = () => {
               <p className="description">{selectedVideo?.description}</p>
               <h3>{selectedVideo?.work ? selectedVideo.work.join(" | ") : null} </h3>
               <h3>{selectedVideo?.software.join(" | ")} </h3>
-              <button onClick={() => handlePlayButton()}>
+              <button onClick={() => handleTogglePlayPause()}>
                 <img src={playButton} alt="Button play" />
               </button>
             </div>
-            <div className={playAnimation ? "thumbnail-filter hide" : "thumbnail-filter"} onClick={() => handlePlayButton()} ></div>
+            <div className={playAnimation ? "thumbnail-filter hide" : "thumbnail-filter"} onClick={() => handleTogglePlayPause()}  ></div>
             <img src={selectedVideo?.thumbnail} alt={selectedVideo?.title} className={playAnimation ? "thumbnail hide" : "thumbnail"} />
-            <video ref={videoRef} src={selectedVideo?.video} muted controls />
-            <div className={playAnimation ? "back-button" : "back-button hide"} title="Retour à la librarie" onClick={() => handlePauseButton()} >
+            <video ref={videoRef} src={selectedVideo?.video} muted controls className="video-selected" />
+
+            <div className={playAnimation ? "back-button" : "back-button hide"} title="Retour à la librarie" onClick={() => handleTogglePlayPause()} >
               <img src={backtoLibrary} alt="Back to Library" />
             </div>
           </div>
