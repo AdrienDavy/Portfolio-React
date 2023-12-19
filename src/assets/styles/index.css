@@ -8,14 +8,27 @@
   text-decoration: none;
 }
 
-button {
+.header {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0px);
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+  transition: all 350ms ease;
+}
+.header.hide {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100px);
+}
+.header button {
   background: transparent !important;
   border: 0;
   padding: 0;
   cursor: pointer;
 }
-
-.burger {
+.header .burger {
   position: absolute;
   z-index: 102;
   top: 20px;
@@ -25,11 +38,11 @@ button {
   gap: 5px;
 }
 @media (min-width: 660px) {
-  .burger {
+  .header .burger {
     display: none;
   }
 }
-.burger-icon {
+.header .burger-icon {
   display: block;
   width: 30px;
   height: 30px;
@@ -37,9 +50,8 @@ button {
   background-position: center center;
   z-index: 10;
 }
-
 @media screen and (max-width: 660px) {
-  .background {
+  .header .background {
     position: fixed;
     z-index: 2;
     aspect-ratio: 1/1;
@@ -53,7 +65,7 @@ button {
     top: 20px;
     right: 12px;
   }
-  .background.open {
+  .header .background.open {
     height: 300vh;
     background: rgba(13, 13, 13, 0.8);
     -webkit-backdrop-filter: blur(5px);
@@ -65,14 +77,14 @@ button {
     aspect-ratio: 1/1;
   }
 }
-.navbar-container {
+.header .navbar-container {
   width: 100dvw;
   position: fixed;
   bottom: 20px;
   z-index: 100;
 }
 @media screen and (max-width: 660px) {
-  .navbar-container {
+  .header .navbar-container {
     height: 100dvh;
     bottom: 0;
     display: grid;
@@ -81,7 +93,7 @@ button {
     opacity: 0;
     transition: all 0.4s ease-in-out;
   }
-  .navbar-container.open {
+  .header .navbar-container.open {
     height: 100dvh;
     bottom: 0;
     display: grid;
@@ -90,18 +102,18 @@ button {
     opacity: 1;
     transition: all 0.4s ease-in-out;
   }
-  .navbar-container .overlay {
+  .header .navbar-container .overlay {
     height: 35dvh;
     flex-flow: column wrap;
   }
 }
-.navbar-container .overlay {
+.header .navbar-container .overlay {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
-.navbar-container .clicked li {
+.header .navbar-container .clicked li {
   background: rgba(0, 183, 219, 0.5);
   box-shadow: 3px 3px 6px -1px rgba(0, 0, 0, 0.15);
   -webkit-backdrop-filter: blur(2.6500000954px);
@@ -126,7 +138,7 @@ button {
   position: relative;
 }
 @media screen and (max-width: 1024px) {
-  .navbar-container .clicked li {
+  .header .navbar-container .clicked li {
     font-size: 0.8rem;
     letter-spacing: 0.6rem;
     padding-left: 0.6rem;
@@ -135,7 +147,7 @@ button {
   }
 }
 @media screen and (max-width: 992px) {
-  .navbar-container .clicked li {
+  .header .navbar-container .clicked li {
     font-size: 0.6rem;
     letter-spacing: 0.4rem;
     padding-left: 0.4rem;
@@ -199,6 +211,11 @@ button {
   }
 }
 
+.btn-primary {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
 .btn-primary li {
   background: rgba(1, 115, 138, 0.1);
   box-shadow: 3px 3px 6px -1px rgba(13, 13, 13, 0.15);
@@ -266,10 +283,12 @@ button {
 }
 
 .btn-secondary {
+  background: transparent;
+  border: none;
+  cursor: pointer;
   grid-area: submit;
   grid-row: span2;
   margin: 0 auto;
-  cursor: pointer;
   background: rgba(1, 115, 138, 0.1);
   box-shadow: 3px 3px 6px -1px rgba(13, 13, 13, 0.15);
   -webkit-backdrop-filter: blur(2.6500000954px);
@@ -514,6 +533,9 @@ button {
   bottom: -10%;
   width: 100px;
   height: 100px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 .selected-video .text button img {
   width: 100px;

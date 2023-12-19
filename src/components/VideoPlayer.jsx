@@ -9,15 +9,17 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/swiper-bundle.css';
 import { FreeMode, Scrollbar, Mousewheel } from 'swiper/modules';
+import { useVideo } from "@contexts/VideoContext";
 
 const VideoPlayer = () => {
 
+  const { playAnimation, setPlayAnimation } = useVideo();
   const location = useLocation();
   const isCgiPage = location.pathname.includes("/cgi");
   const libraryToDisplay = isCgiPage ? cgiLibrary : videoLibrary;
   const [selectedVideo, setSelectedVideo] = useState(isCgiPage ? cgiLibrary[0] : videoLibrary[0]);
   const videoRef = useRef(null);
-  const [playAnimation, setPlayAnimation] = useState(null);
+
 
 
   useEffect(() => {

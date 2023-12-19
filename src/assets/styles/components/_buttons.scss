@@ -1,4 +1,7 @@
 .btn-primary {
+  background: transparent;
+  border: none;
+  cursor: pointer;
   li {
     background: rgba($tertiary, 0.1);
     box-shadow: 3px 3px 6px -1px rgba($secondary, 0.15);
@@ -61,10 +64,12 @@
 }
 
 .btn-secondary {
+  background: transparent;
+  border: none;
+  cursor: pointer;
   grid-area: submit;
   grid-row: span2;
   margin: 0 auto;
-  cursor: pointer;
   background: rgba($tertiary, 0.1);
   box-shadow: 3px 3px 6px -1px rgba($secondary, 0.15);
   backdrop-filter: blur(2.6500000953674316px);
