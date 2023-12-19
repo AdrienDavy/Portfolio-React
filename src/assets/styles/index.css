@@ -448,9 +448,218 @@ button {
   color: rgb(255, 0, 0);
 }
 
+.selected-video {
+  z-index: 0;
+  display: grid;
+  place-items: center;
+  position: relative;
+  height: 100dvh;
+}
+.selected-video.playing {
+  background: black;
+}
+.selected-video .text {
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  z-index: 30;
+  width: 500px;
+  height: 500px;
+  color: #f2e6d8;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.6s ease;
+}
+.selected-video .text.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+.selected-video .text .number {
+  color: rgba(242, 230, 216, 0.5);
+  font-family: "novecento-sans", sans-serif;
+  font-size: 128px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.selected-video .text h2 {
+  color: #f2e6d8;
+  font-family: "novecento-sans", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 25.6px;
+}
+.selected-video .text h4 {
+  color: #f2e6d8;
+  font-family: "novecento-sans", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 10.6px;
+}
+.selected-video .text .description,
+.selected-video .text h3 {
+  color: #f2e6d8;
+  font-family: "novecento-sans", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.selected-video .text button {
+  position: absolute;
+  bottom: -10%;
+  width: 100px;
+  height: 100px;
+}
+.selected-video .text button img {
+  width: 100px;
+  height: 100px;
+  transition: all 250ms ease;
+}
+.selected-video .text button img:hover {
+  filter: drop-shadow(0 0 10px rgba(242, 230, 216, 0.5));
+}
+.selected-video .thumbnail-filter {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  z-index: 4;
+  opacity: 1;
+  visibility: visible;
+  transition: all 350ms ease;
+}
+.selected-video .thumbnail-filter.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+.selected-video img.thumbnail {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+  opacity: 1;
+  visibility: visible;
+  transition: all 350ms ease;
+}
+.selected-video img.thumbnail.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+.selected-video video {
+  top: 0;
+  position: fixed;
+  z-index: 1;
+  height: 100dvh;
+}
+.selected-video .back-button {
+  position: absolute;
+  bottom: 10%;
+  right: 0;
+  z-index: 4;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  translate: 0 0;
+  transition: all 350ms ease-in-out;
+}
+.selected-video .back-button:hover {
+  box-shadow: 0 0 16px 3px rgba(1, 115, 138, 0.2);
+}
+.selected-video .back-button.hide {
+  translate: 50px 0;
+}
+.selected-video .back-button img {
+  padding: 5px;
+  border-radius: 5px 0 0 5px;
+  width: 40px;
+  height: 40px;
+  background: #01738a;
+}
+
+.slider {
+  position: fixed;
+  z-index: 1;
+  height: 82dvh;
+  right: 2%;
+  top: 5%;
+  translate: 0 0;
+  transition: all 350ms ease;
+}
+.slider.hide {
+  translate: 130% 0;
+}
+.slider .mySwiper {
+  height: 100%;
+  width: 450px;
+}
+.slider .mySwiper .swiper-wrapper {
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  cursor: pointer;
+}
+.slider .mySwiper .swiper-wrapper p {
+  z-index: 2;
+  position: absolute;
+  right: 15%;
+  top: -10%;
+  color: rgba(242, 230, 216, 0.5);
+  font-family: "novecento-sans", sans-serif;
+  font-size: 128px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}
+.slider .mySwiper .swiper-wrapper h2 {
+  z-index: 2;
+  position: absolute;
+  color: #f2e6d8;
+  font-family: "novecento-sans", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 16px;
+  bottom: 0;
+  padding: 10px;
+  text-transform: uppercase;
+  width: 90%;
+}
+.slider .mySwiper .swiper-wrapper .thumbnail-filter {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  width: 400px;
+  height: 100%;
+  padding-bottom: 30px;
+}
+.slider .mySwiper .swiper-scrollbar {
+  right: 25px;
+}
+.slider .mySwiper .swiper-scrollbar .swiper-scrollbar-drag {
+  background: #01738a;
+  width: 5px;
+  left: -1px;
+}
+
 main {
   height: 100dvh;
   width: 100dvw;
+}
+
+.cgi-container {
+  position: relative;
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
 }
 
 .home-container {
@@ -520,4 +729,11 @@ main {
 }
 .contact-container video {
   z-index: 0;
+}
+
+.videos-container {
+  position: relative;
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
 }/*# sourceMappingURL=index.css.map */

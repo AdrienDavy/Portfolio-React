@@ -1,8 +1,7 @@
 import VideoPlayer from "@components/VideoPlayer";
 const Videos = () => {
   return (
-    <div>
-      Videos
+    <div className="videos-container">
       <VideoPlayer />
     </div>
   )
