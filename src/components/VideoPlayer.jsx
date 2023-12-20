@@ -73,7 +73,7 @@ const VideoPlayer = () => {
       <div>
         {selectedVideo && (
           <div className={playAnimation ? "selected-video playing" : "selected-video"}>
-            <div className={playAnimation ? "text hide" : "text"}>
+            <div className={playAnimation ? "text hide" : "text"} onClick={() => handleTogglePlayPause()}>
               <p className="number">{selectedVideo?.number}</p>
               <h2>{selectedVideo?.title}</h2>
               <h4>{selectedVideo?.year} </h4>
@@ -86,7 +86,7 @@ const VideoPlayer = () => {
             </div>
             <div className={playAnimation ? "thumbnail-filter hide" : "thumbnail-filter"} onClick={() => handleTogglePlayPause()}  ></div>
             <img src={selectedVideo?.thumbnail} alt={selectedVideo?.title} className={playAnimation ? "thumbnail hide" : "thumbnail"} />
-            <video ref={videoRef} src={selectedVideo?.video} muted controls className="video-selected" />
+            <video ref={videoRef} src={selectedVideo?.video} muted controls className="current-video" />
 
             <div className={playAnimation ? "back-button" : "back-button hide"} title="Retour à la librarie" onClick={() => handleTogglePlayPause()} >
               <img src={backtoLibrary} alt="Back to Library" />

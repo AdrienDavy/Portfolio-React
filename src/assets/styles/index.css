@@ -481,8 +481,8 @@
   position: fixed;
   top: 10%;
   left: 10%;
-  z-index: 30;
-  width: 500px;
+  z-index: 5;
+  width: 50dvw;
   height: 500px;
   color: #f2e6d8;
   opacity: 1;
@@ -518,9 +518,11 @@
   font-weight: 700;
   line-height: normal;
   letter-spacing: 10.6px;
+  margin-bottom: 50px;
 }
 .selected-video .text .description,
 .selected-video .text h3 {
+  margin: 10px;
   color: #f2e6d8;
   font-family: "novecento-sans", sans-serif;
   font-size: 20px;
@@ -536,6 +538,7 @@
   background: transparent;
   border: none;
   cursor: pointer;
+  z-index: 6;
 }
 .selected-video .text button img {
   width: 100px;
