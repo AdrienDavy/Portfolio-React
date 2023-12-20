@@ -5,7 +5,7 @@ import Devweb from "@pages/Devweb";
 import Videos from "@pages/Videos";
 import Contact from "@pages/Contact";
 import Navbar from "@components/Navbar";
-import { VideoProvider } from "@contexts/VideoContext";
+import { VideoProvider } from "@contexts/videoContext";
 
 function App() {
   return (
