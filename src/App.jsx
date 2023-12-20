@@ -5,21 +5,24 @@ import Devweb from "@pages/Devweb";
 import Videos from "@pages/Videos";
 import Contact from "@pages/Contact";
 import Navbar from "@components/Navbar";
-import { VideoProvider } from "@contexts/videoContext";
+import { VideoProvider } from "@contexts/VideoContext";
+import { TargetProvider } from "@contexts/TargetContext";
 
 function App() {
   return (
     <VideoProvider>
-      <main>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/cgi" element={<Cgi />} />
-          <Route path="/devweb" element={<Devweb />} />
-          <Route path="/videos" element={<Videos />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </main>
+      <TargetProvider>
+        <main>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/cgi" element={<Cgi />} />
+            <Route path="/devweb" element={<Devweb />} />
+            <Route path="/videos" element={<Videos />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+      </TargetProvider>
     </VideoProvider>
   )
 }

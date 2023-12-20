@@ -4,7 +4,7 @@
   transform: translateY(0px);
   position: fixed;
   bottom: 0;
-  z-index: 1;
+  z-index: 100;
   transition: all 350ms ease;
 
   &.hide {
@@ -19,54 +19,6 @@
     cursor: pointer;
   }
 
-  .burger {
-    position: absolute;
-    z-index: 102;
-    top: 20px;
-    right: 12px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-
-    @media (min-width: 660px) {
-      display: none;
-    }
-
-    &-icon {
-      display: block;
-      width: 30px;
-      height: 30px;
-      background-repeat: no-repeat;
-      background-position: center center;
-      z-index: 10;
-    }
-  }
-  @include sm {
-    .background {
-      position: fixed;
-      z-index: 2;
-      aspect-ratio: 1 / 1;
-      height: 88px;
-      background: rgba($secondary, 0.8);
-      backdrop-filter: blur(5px);
-      border-radius: 50%;
-      opacity: 0;
-      transition: 0.4s;
-      top: 20px;
-      right: 12px;
-
-      &.open {
-        height: 300vh;
-        background: rgba($secondary, 0.8);
-        backdrop-filter: blur(5px);
-        border-radius: 50%;
-        opacity: 1;
-        top: -100%;
-        right: -100%;
-        aspect-ratio: 1 / 1;
-      }
-    }
-  }
   .navbar-container {
     width: 100dvw;
     position: fixed;
@@ -89,6 +41,8 @@
         visibility: visible;
         opacity: 1;
         transition: all 0.4s ease-in-out;
+        backdrop-filter: blur(5px);
+        background: rgba($secondary, 0.8);
       }
       .overlay {
         height: 35dvh;
@@ -100,45 +54,7 @@
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-    }
-
-    .clicked {
-      li {
-        background: rgba(0, 183, 219, 0.5);
-        box-shadow: 3px 3px 6px -1px rgba(0, 0, 0, 0.15);
-        backdrop-filter: blur(2.6500000953674316px);
-        width: 200px;
-        height: 36px;
-        flex-shrink: 0;
-        @include align-items;
-        color: $primary;
-        font-family: $font;
-        text-transform: uppercase;
-        font-size: 1.125rem;
-        font-style: normal;
-        font-weight: 300;
-        line-height: normal;
-        letter-spacing: 0.9rem;
-        padding-left: 0.9rem;
-        transition: all 350ms ease;
-        overflow: hidden;
-        position: relative;
-        @include xl {
-          font-size: 0.8rem;
-          letter-spacing: 0.6rem;
-          padding-left: 0.6rem;
-          width: 140px;
-          height: 30px;
-        }
-
-        @include md {
-          font-size: 0.6rem;
-          letter-spacing: 0.4rem;
-          padding-left: 0.4rem;
-          width: 120px;
-          height: 20px;
-        }
-      }
+      position: relative;
     }
   }
 }
@@ -193,5 +109,33 @@
   transition: all 350ms ease;
   @include md {
     height: 50px;
+  }
+}
+
+//BURGER MENU -----------------------------------------------
+.burger {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  @media (min-width: 660px) {
+    display: none;
+  }
+  @include sm {
+    position: absolute;
+    z-index: 102;
+    top: 20px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    &-icon {
+      display: block;
+      width: 30px;
+      height: 30px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      z-index: 10;
+    }
   }
 }
