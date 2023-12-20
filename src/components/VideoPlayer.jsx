@@ -9,15 +9,17 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/swiper-bundle.css';
 import { FreeMode, Scrollbar, Mousewheel } from 'swiper/modules';
+import { useVideo } from "@contexts/VideoContext";
 
 const VideoPlayer = () => {
 
+  const { playAnimation, setPlayAnimation } = useVideo();
   const location = useLocation();
   const isCgiPage = location.pathname.includes("/cgi");
   const libraryToDisplay = isCgiPage ? cgiLibrary : videoLibrary;
   const [selectedVideo, setSelectedVideo] = useState(isCgiPage ? cgiLibrary[0] : videoLibrary[0]);
   const videoRef = useRef(null);
-  const [playAnimation, setPlayAnimation] = useState(null);
+
 
 
   useEffect(() => {
@@ -28,22 +30,19 @@ const VideoPlayer = () => {
   }, [selectedVideo]);
 
 
-
   const handleClickVideo = (video) => {
     setSelectedVideo(video);
   };
 
-  const handlePlayButton = () => {
-    setTimeout(() => {
-      videoRef.current.play();
-    }, 150);
+  const handleTogglePlayPause = () => {
+    !playAnimation ?
+      setTimeout(() => {
+        videoRef.current.play();
+      }, 150) :
+      videoRef.current.pause();
+    setPlayAnimation(!playAnimation)
+  };
 
-    setPlayAnimation(!playAnimation)
-  };
-  const handlePauseButton = () => {
-    videoRef.current.pause();
-    setPlayAnimation(!playAnimation)
-  };
 
   return (
     <div>
@@ -74,21 +73,22 @@ const VideoPlayer = () => {
       <div>
         {selectedVideo && (
           <div className={playAnimation ? "selected-video playing" : "selected-video"}>
-            <div className={playAnimation ? "text hide" : "text"}>
+            <div className={playAnimation ? "text hide" : "text"} onClick={() => handleTogglePlayPause()}>
               <p className="number">{selectedVideo?.number}</p>
               <h2>{selectedVideo?.title}</h2>
               <h4>{selectedVideo?.year} </h4>
               <p className="description">{selectedVideo?.description}</p>
               <h3>{selectedVideo?.work ? selectedVideo.work.join(" | ") : null} </h3>
               <h3>{selectedVideo?.software.join(" | ")} </h3>
-              <button onClick={() => handlePlayButton()}>
+              <button onClick={() => handleTogglePlayPause()}>
                 <img src={playButton} alt="Button play" />
               </button>
             </div>
-            <div className={playAnimation ? "thumbnail-filter hide" : "thumbnail-filter"} onClick={() => handlePlayButton()} ></div>
+            <div className={playAnimation ? "thumbnail-filter hide" : "thumbnail-filter"} onClick={() => handleTogglePlayPause()}  ></div>
             <img src={selectedVideo?.thumbnail} alt={selectedVideo?.title} className={playAnimation ? "thumbnail hide" : "thumbnail"} />
-            <video ref={videoRef} src={selectedVideo?.video} muted controls />
-            <div className={playAnimation ? "back-button" : "back-button hide"} title="Retour à la librarie" onClick={() => handlePauseButton()} >
+            <video ref={videoRef} src={selectedVideo?.video} muted controls className="current-video" />
+
+            <div className={playAnimation ? "back-button" : "back-button hide"} title="Retour à la librarie" onClick={() => handleTogglePlayPause()} >
               <img src={backtoLibrary} alt="Back to Library" />
             </div>
           </div>
