@@ -1,30 +1,20 @@
 import { NavLink } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Logo from '../assets/img/logo.svg';
 import LogoWhite from '../assets/img/logoWhite.svg';
 import BurgerIcon from "../assets/img/icon-burger.svg";
 import CloseIcon from "../assets/img/icon-close.svg";
 import { useVideo } from "@contexts/VideoContext";
+import { useTarget } from '@contexts/TargetContext';
+import TargetStyle from "./TargetStyle";
 
 const Navbar = () => {
+  const { setActiveButton, setIsAnimating, setTargetStyle } = useTarget();
   const [isOpen, setIsOpen] = useState(false);
   const { playAnimation } = useVideo();
-  const [activeButton, setActiveButton] = useState(null);
-  const [isAnimating, setIsAnimating] = useState(false);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
-  const [targetStyle, setTargetStyle] = useState({
-    bottom: 0,
-    height: 0,
-    left: 0,
-    right: 0,
-    top: 0,
-    width: 0,
-    x: 0,
-    y: 0
-  });
 
   const handleButtonClick = async (event) => {
 
@@ -49,56 +39,15 @@ const Navbar = () => {
     setActiveButton(targetButton);
     setIsAnimating(true);
 
-    // Attendre la fin du mouvement (par exemple, après 300 ms)
+
     setTimeout(() => {
       setIsAnimating(false);
     }, 60);
   };
 
-  useEffect(() => {
-    const handleResize = () => {
-      // Mettez à jour le style de l'élément animated-target en cas de redimensionnement de la fenêtre
-      if (activeButton) {
-        const buttonRect = activeButton.getBoundingClientRect();
-
-        setTargetStyle({
-          bottom: `${buttonRect.bottom}px`,
-          height: `${buttonRect.height}px`,
-          left: `${buttonRect.left}px`,
-          right: `${buttonRect.right}px`,
-          top: `${buttonRect.top}px`,
-          width: `${buttonRect.width}px`,
-          x: `${buttonRect.x}px`,
-          y: `${buttonRect.y}px`,
-        });
-      }
-    };
-
-    // Ajouter un écouteur d'événements pour le redimensionnement de la fenêtre
-    window.addEventListener('resize', handleResize);
-
-    // Supprimer l'écouteur d'événements lors du démontage du composant
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [activeButton]);
-
-
   return (
     <>
-      <div
-        className={playAnimation ? `animated-target ${isAnimating ? 'blur' : ''} hide` : `animated-target ${isAnimating ? 'blur' : ''}`}
-        style={targetStyle}
-      >
-        <span className="tlv"></span>
-        <span className="tlh"></span>
-        <span className="trv"></span>
-        <span className="trh"></span>
-        <span className="brv"></span>
-        <span className="brh"></span>
-        <span className="blv"></span>
-        <span className="blh"></span>
-      </div>
+      <TargetStyle />
       <button type="button" className="burger" onClick={toggleMenu}>
         <img
           src={isOpen ? CloseIcon : BurgerIcon}
