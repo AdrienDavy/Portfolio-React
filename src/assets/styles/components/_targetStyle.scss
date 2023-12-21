@@ -1,0 +1,79 @@
+.animated-target {
+  z-index: 500;
+  position: absolute;
+  transition: all 150ms ease-in-out;
+  pointer-events: none;
+  opacity: 1;
+  visibility: visible;
+
+  &.hide {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  span {
+    display: block;
+    position: absolute;
+    background-color: rgba($secondary, 0.5);
+  }
+
+  span.tlv {
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 10px;
+  }
+  span.tlh {
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 2px;
+  }
+
+  span.trv {
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 10px;
+  }
+  span.trh {
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 2px;
+  }
+
+  span.brv {
+    bottom: 0;
+    right: 0;
+    width: 2px;
+    height: 10px;
+  }
+  span.brh {
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 2px;
+  }
+
+  span.blv {
+    bottom: 0;
+    left: 0;
+    width: 2px;
+    height: 10px;
+  }
+  span.blh {
+    bottom: 0;
+    left: 0;
+    width: 10px;
+    height: 2px;
+  }
+}
+
+.blur {
+  filter: blur(5px); /* Ajustez la valeur de flou selon vos préférences */
+}

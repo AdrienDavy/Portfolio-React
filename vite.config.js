@@ -10,9 +10,14 @@ export default defineConfig({
     alias: {
       '@': new URL('src', import.meta.url).pathname,
       '@pages': path.resolve(__dirname, 'src/pages'),
+      '@contexts': path.resolve(__dirname, 'src/contexts'),
       '@components': path.resolve(__dirname, 'src/components'),
       '@videos': path.resolve(__dirname, 'src/assets/videos'),
-      '@thumbnails': path.resolve(__dirname, 'src/assets/videos/thumbnails'),
+      '@cgi': path.resolve(__dirname, 'src/assets/cgi'),
+      '@videoThumbnails': path.resolve(__dirname, 'src/assets/videos/videoThumbnails'),
+      '@cgiThumbnails': path.resolve(__dirname, 'src/assets/cgi/cgiThumbnails'),
+      '@videoSources': path.resolve(__dirname, 'src/assets/videos/videoSources'),
+      '@cgiSources': path.resolve(__dirname, 'src/assets/cgi/cgiSources'),
     },
   },
 })

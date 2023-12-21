@@ -1,0 +1,26 @@
+@mixin align-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin xxl {
+  @media screen and (min-width: map-get($xlBreakpoint, desktop )) {
+    @content;
+  }
+}
+@mixin xl {
+  @media screen and (max-width: map-get($xlBreakpoint, desktop )) {
+    @content;
+  }
+}
+@mixin md {
+  @media screen and (max-width: map-get($mdBreakpoint, desktop )) {
+    @content;
+  }
+}
+@mixin sm {
+  @media screen and (max-width: map-get($smBreakpoint, mobile )) {
+    @content;
+  }
+}
