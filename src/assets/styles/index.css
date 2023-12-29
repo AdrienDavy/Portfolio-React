@@ -669,6 +669,11 @@
   opacity: 1;
   visibility: visible;
 }
+@media screen and (max-width: 660px) {
+  .animated-target {
+    display: none;
+  }
+}
 .animated-target.hide {
   position: absolute;
   opacity: 0;
