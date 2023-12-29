@@ -6,6 +6,10 @@
   opacity: 1;
   visibility: visible;
 
+  @include sm {
+    display: none;
+  }
+
   &.hide {
     position: absolute;
     opacity: 0;
