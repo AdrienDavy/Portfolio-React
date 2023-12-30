@@ -1,24 +1,39 @@
 .selected-video {
   z-index: 0;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   position: relative;
   height: 100dvh;
+  @include sm {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
   &.playing {
     background: black;
   }
 
   .text {
-    position: fixed;
-    top: 10%;
-    left: 10%;
     z-index: 5;
-    width: 50dvw;
-    height: 500px;
     color: $primary;
     opacity: 1;
     visibility: visible;
     transition: all 0.6s ease;
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 0 2%;
+    margin-left: 5%;
+    @include md {
+      margin-left: 2%;
+    }
+    @include sm {
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+      margin-left: 0;
+    }
     &.hide {
       opacity: 0;
       visibility: hidden;
@@ -26,7 +41,7 @@
     .number {
       color: rgba(242, 230, 216, 0.5);
       font-family: $font;
-      font-size: 128px;
+      font-size: clamp(50px, 10vw, 192px);
       font-style: normal;
       font-weight: 700;
       line-height: normal;
@@ -34,47 +49,142 @@
     h2 {
       color: $primary;
       font-family: $font;
-      font-size: 32px;
+      font-size: clamp(22px, 1.6vw, 32px);
       font-style: normal;
       font-weight: 700;
       line-height: normal;
-      letter-spacing: 25.6px;
+      letter-spacing: clamp(22px, 1.3vw, 25.6px);
+      @include sm {
+        letter-spacing: normal;
+      }
     }
     h4 {
       color: $primary;
       font-family: $font;
-      font-size: 16px;
+      font-size: clamp(12px, 0.8vw, 16px);
       font-style: normal;
       font-weight: 700;
       line-height: normal;
-      letter-spacing: 10.6px;
-      margin-bottom: 50px;
+      letter-spacing: clamp(5px, 0.5vw, 10.6px);
+      margin-bottom: 2%;
+    }
+    .description {
+      margin-bottom: 2%;
     }
     .description,
     h3 {
-      margin: 10px;
       color: $primary;
       font-family: $font;
-      font-size: 20px;
+      font-size: clamp(12px, 1vw, 20px);
       font-style: normal;
       font-weight: 700;
       line-height: normal;
     }
+    h3:last-of-type {
+      margin-bottom: 10%;
+      @include sm {
+        margin-bottom: 15%;
+      }
+    }
     button {
-      position: absolute;
-      bottom: -10%;
-      width: 100px;
-      height: 100px;
+      width: clamp(80px, 7.8vw, 150px);
+      height: auto;
       background: transparent;
       border: none;
       cursor: pointer;
       z-index: 6;
       img {
-        width: 100px;
-        height: 100px;
+        width: clamp(80px, 7.8vw, 150px);
+        height: auto;
         transition: all 250ms ease;
         &:hover {
           filter: drop-shadow(0 0 10px rgba($primary, 0.5));
+        }
+      }
+    }
+  }
+  .slider {
+    z-index: 5;
+    height: 70%;
+    translate: 0 0;
+    transition: all 350ms ease;
+    padding-bottom: 2%;
+    @include sm {
+      position: absolute;
+      padding-bottom: 0;
+    }
+    &.hide {
+      translate: 150% 0;
+    }
+
+    .mySwiper {
+      height: 100%;
+      width: 450px;
+      @include md {
+        width: 350px;
+      }
+      @include sm {
+        left: 10%;
+      }
+      .swiper-wrapper {
+        position: relative;
+        user-select: none;
+        cursor: pointer;
+        .swiper-slide-content {
+          position: relative;
+          width: 80%;
+          height: 100%;
+          p {
+            position: absolute;
+            z-index: 5;
+            right: 15%;
+            top: -10%;
+            color: rgba(242, 230, 216, 0.5);
+            font-family: $font;
+            font-size: clamp(50px, 8vw, 128px);
+            font-style: normal;
+            font-weight: 800;
+            line-height: normal;
+            @include md {
+              top: 0;
+            }
+          }
+          h2 {
+            position: absolute;
+            z-index: 5;
+            color: #f2e6d8;
+            font-family: $font;
+            font-size: clamp(16px, 1.2vw, 28px);
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            letter-spacing: clamp(8px, 0.8vw, 20px);
+            bottom: 0;
+            padding: 10px;
+            text-transform: uppercase;
+            width: 90%;
+          }
+          .thumbnail-filter {
+            position: absolute;
+            background: rgba($color: #000000, $alpha: 0.5);
+            width: 100%;
+            height: 100%;
+            // padding-bottom: 30px;
+          }
+          img {
+            object-fit: cover;
+          }
+        }
+      }
+      .swiper-scrollbar {
+        right: 25px;
+        @include sm {
+          display: none;
+        }
+        .swiper-scrollbar-drag {
+          background: rgba($tertiary, $alpha: 1);
+          width: 5px;
+          left: -1px;
         }
       }
     }
@@ -113,6 +223,7 @@
     position: fixed;
     z-index: 1;
     height: 100dvh;
+    width: 100dvw;
   }
 
   .back-button {
@@ -141,66 +252,33 @@
   }
 }
 
-.slider {
-  position: fixed;
-  z-index: 1;
-  height: 82dvh;
-  right: 2%;
-  top: 5%;
-  translate: 0 0;
-  transition: all 350ms ease;
-  &.hide {
-    translate: 130% 0;
-  }
+.toggle-description {
+  display: none;
+  @include sm {
+    position: fixed;
+    bottom: 10%;
+    right: 10%;
+    z-index: 5;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    translate: 0 0;
+    transition: all 350ms ease-in-out;
+    display: grid;
+    place-items: center;
 
-  .mySwiper {
-    height: 100%;
-    width: 450px;
-    .swiper-wrapper {
-      position: relative;
-      user-select: none;
-      cursor: pointer;
-      p {
-        z-index: 2;
-        position: absolute;
-        right: 15%;
-        top: -10%;
-        color: rgba(242, 230, 216, 0.5);
-        font-family: $font;
-        font-size: 128px;
-        font-style: normal;
-        font-weight: 800;
-        line-height: normal;
-      }
-      h2 {
-        z-index: 2;
-        position: absolute;
-        color: #f2e6d8;
-        font-family: $font;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-        letter-spacing: 16px;
-        bottom: 0;
-        padding: 10px;
-        text-transform: uppercase;
-        width: 90%;
-      }
-      .thumbnail-filter {
-        position: absolute;
-        background: rgba($color: #000000, $alpha: 0.5);
-        width: 400px;
-        height: 100%;
-        padding-bottom: 30px;
-      }
+    &.hide {
+      translate: 80px 0;
     }
-    .swiper-scrollbar {
-      right: 25px;
-      .swiper-scrollbar-drag {
-        background: rgba($tertiary, $alpha: 1);
-        width: 5px;
-        left: -1px;
+    .toggle-library-img {
+      padding: 5px;
+      width: 50px;
+      height: 50px;
+      background: rgba($tertiary, $alpha: 1);
+      border-radius: 50%;
+      transition: all 350ms ease-in-out;
+      &.switch {
+        transform: rotateY(180deg);
       }
     }
   }
