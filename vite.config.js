@@ -14,6 +14,7 @@ export default defineConfig({
       '@components': path.resolve(__dirname, 'src/components'),
       '@videos': path.resolve(__dirname, 'src/assets/videos'),
       '@cgi': path.resolve(__dirname, 'src/assets/cgi'),
+      '@devweb': path.resolve(__dirname, 'src/assets/devweb'),
       '@videoThumbnails': path.resolve(__dirname, 'src/assets/videos/videoThumbnails'),
       '@cgiThumbnails': path.resolve(__dirname, 'src/assets/cgi/cgiThumbnails'),
       '@devwebThumbnails': path.resolve(__dirname, 'src/assets/devweb/devwebThumbnails'),

@@ -1,0 +1,9 @@
+.website-list {
+  display: flex;
+  width: 100%;
+  .website {
+    height: 100%;
+    width: 15%;
+    aspect-ratio: 9/16;
+  }
+}

@@ -924,4 +924,14 @@ main {
   width: 100dvw;
   height: 100dvh;
   overflow: hidden;
+}
+
+.website-list {
+  display: flex;
+  width: 100%;
+}
+.website-list .website {
+  height: 100%;
+  width: 15%;
+  aspect-ratio: 9/16;
 }/*# sourceMappingURL=index.css.map */
