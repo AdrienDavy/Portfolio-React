@@ -1,17 +1,9 @@
 .header {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0px);
   position: fixed;
-  bottom: 0;
   z-index: 100;
-  transition: all 350ms ease;
 
-  &.hide {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(100px);
-  }
   button {
     background: transparent !important;
     border: 0;
@@ -24,6 +16,8 @@
     position: fixed;
     bottom: 20px;
     z-index: 100;
+    translate: 100% 0;
+    overflow: hidden;
 
     @include sm {
       height: 100dvh;
@@ -42,10 +36,11 @@
         opacity: 1;
         transition: all 0.4s ease-in-out;
         backdrop-filter: blur(5px);
+        translate: 0 0;
         background: rgba($secondary, 0.8);
       }
       .overlay {
-        height: 35dvh;
+        height: 60dvh;
         flex-flow: column wrap;
       }
     }
