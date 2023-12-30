@@ -16,7 +16,7 @@ const devwebLibrary = [
     langage: [langage.wp, langage.acf, langage.html, langage.sass, langage.js, langage.php, langage.swiper],
     year: 2023,
     thumbnail: gabelins,
-    link: "https://villa-saintiki.com/"
+    link: "https://www.lafermedesgabelins.fr/"
   },
   {
     id: 2,
