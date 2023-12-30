@@ -29,22 +29,32 @@ const FormTemplate = () => {
     <>
       <div className="form-container">
         <form ref={form} onSubmit={sendEmail}>
-          <label htmlFor="name"></label>
+          <label htmlFor="firstname"></label>
           <input type="text"
-            name="name"
-            pattern="(^[a-zA-ZÀ-ÖØ-öø-ÿ]{1,30} [a-zA-ZÀ-ÖØ-öø-ÿ]{1,30}$)"
-            title="Veuillez renseigner votre prénom et votre nom en les séparant par un espace."
+            name="firstname"
+            pattern="(^[a-zA-ZÀ-ÖØ-öø-ÿ]{1,30})"
+            title="Veuillez renseigner votre prénom"
             required
-            placeholder="John Doe"
-            id="name"
-            autoComplete='nope'
+            placeholder="John *"
+            id="firstname"
+            autoComplete="nope"
+          />
+          <label htmlFor="lastname"></label>
+          <input type="text"
+            name="lastname"
+            pattern="(^[a-zA-ZÀ-ÖØ-öø-ÿ]{1,30})"
+            title="Veuillez renseigner votre nom"
+            required
+            placeholder="Doe *"
+            id="lastname"
+            autoComplete="nope"
           />
           <label htmlFor="email"></label>
-          <input type="email" name="email" id="email" required placeholder="johndoe@gmail.com" key="email" />
+          <input type="email" name="email" id="email" required placeholder="johndoe@gmail.com *" key="email" />
           <label htmlFor="message"></label>
-          <textarea name="message" placeholder="Commentaires..." id="message" rows="5" cols="33" required />
+          <textarea name="message" placeholder="Commentaires... *" id="message" rows="5" cols="33" required />
           <button className="btn-secondary">
-            <p><input className='unclicked' type="submit" value="Envoyer" /></p>
+            <p><input className="unclicked" type="submit" value="Envoyer" /></p>
             <span></span>
           </button>
         </form>
