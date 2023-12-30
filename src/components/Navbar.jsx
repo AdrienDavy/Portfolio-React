@@ -4,14 +4,12 @@ import Logo from '../assets/img/logo.svg';
 import LogoWhite from '../assets/img/logoWhite.svg';
 import BurgerIcon from "../assets/img/icon-burger.svg";
 import CloseIcon from "../assets/img/icon-close.svg";
-import { useVideo } from "@contexts/VideoContext";
 import { useTarget } from '@contexts/TargetContext';
 import TargetStyle from "./TargetStyle";
 
 const Navbar = () => {
   const { setActiveButton, setIsAnimating, setTargetStyle } = useTarget();
   const [isOpen, setIsOpen] = useState(false);
-  const { playAnimation } = useVideo();
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -55,42 +53,42 @@ const Navbar = () => {
           className="burger-icon"
         />
       </button>
-      <header className={playAnimation ? "header hide" : "header"}>
-        <nav className={isOpen ? "navbar-container open" : "navbar-container"}>
+      <header className="header">
+        <nav className={isOpen ? "navbar-container open" : "navbar-container"} onClick={() => toggleMenu()}>
           <ul className="overlay">
 
             <button className="btn-primary first" onMouseOver={handleButtonClick}>
-              <NavLink to="cgi" className={({ isActive }) => (isActive ? "clicked" : "unclicked")}>
+              <NavLink to="cgi" className={({ isActive }) => (isActive ? "clicked" : "unclicked")} onClick={() => toggleMenu()}>
                 <li><p>CGI</p><span></span></li>
               </NavLink>
             </button>
 
             <button className="btn-primary" onMouseOver={handleButtonClick}>
-              <NavLink to="videos" className={({ isActive }) => (isActive ? "clicked" : "unclicked")}>
+              <NavLink to="videos" className={({ isActive }) => (isActive ? "clicked" : "unclicked")} onClick={() => toggleMenu()}>
                 <li><p>Videos</p><span></span></li>
               </NavLink>
             </button>
 
-            <NavLink to="/" className={({ isActive }) => (isActive ? "logo-clicked" : "logo-unclicked")} id="logoLink" onMouseOver={handleButtonClick}>
+            <NavLink to="/" className={({ isActive }) => (isActive ? "logo-clicked" : "logo-unclicked")} id="logoLink" onMouseOver={handleButtonClick} onClick={() => toggleMenu()}>
               <li> <img id="logo" src={Logo} alt="Logo" title="Accueil" />
                 <img id="logo-white" src={LogoWhite} alt="Logo white" title="Accueil" />
               </li>
             </NavLink>
 
             <button className="btn-primary" onMouseOver={handleButtonClick}>
-              <NavLink to="devweb" className={({ isActive }) => (isActive ? "clicked" : "unclicked")}>
+              <NavLink to="devweb" className={({ isActive }) => (isActive ? "clicked" : "unclicked")} onClick={() => toggleMenu()}>
                 <li><p>Dev Web</p><span></span></li>
 
               </NavLink>
             </button>
             <button className="btn-primary" onMouseOver={handleButtonClick}>
-              <NavLink to="contact" className={({ isActive }) => (isActive ? "clicked" : "unclicked")}>
+              <NavLink to="contact" className={({ isActive }) => (isActive ? "clicked" : "unclicked")} onClick={() => toggleMenu()}>
                 <li><p>Contact</p><span></span></li>
               </NavLink>
             </button>
           </ul>
         </nav>
-      </header>
+      </header >
     </>
   )
 }
