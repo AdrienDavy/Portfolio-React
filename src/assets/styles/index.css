@@ -510,6 +510,7 @@
 .selected-video .text h2 {
   color: #f2e6d8;
   font-family: "novecento-sans", sans-serif;
+  font-family: "novecento-sans", sans-serif;
   font-size: clamp(22px, 1.6vw, 32px);
   font-style: normal;
   font-weight: 700;
@@ -926,12 +927,154 @@ main {
   overflow: hidden;
 }
 
-.website-list {
-  display: flex;
-  width: 100%;
+.devweb-container {
+  position: relative;
+  z-index: 0;
+  height: 100dvh;
+  width: 100dvw;
+  overflow: hidden;
+  transition: all 350ms ease;
 }
-.website-list .website {
+.devweb-container .site-selection {
+  width: 100%;
   height: 100%;
-  width: 15%;
-  aspect-ratio: 9/16;
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+  background: linear-gradient(to bottom, rgba(13, 13, 13, 0.5), rgba(13, 13, 13, 0.2));
+  display: grid;
+  grid-template-areas: "text image" "list list";
+  gap: 2%;
+  grid-template-rows: 40% 60%;
+  justify-content: space-between;
+}
+.devweb-container .site-selection .text {
+  grid-area: text;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 5%;
+}
+.devweb-container .site-selection .text .number {
+  color: rgba(242, 230, 216, 0.5);
+  font-family: "novecento-sans", sans-serif;
+  font-size: clamp(50px, 10vw, 192px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.devweb-container .site-selection .text h2 {
+  color: #f2e6d8;
+  font-family: "novecento-sans", sans-serif;
+  font-family: "novecento-sans", sans-serif;
+  font-size: clamp(22px, 1.6vw, 32px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: clamp(22px, 1.3vw, 25.6px);
+}
+@media screen and (max-width: 660px) {
+  .devweb-container .site-selection .text h2 {
+    letter-spacing: normal;
+  }
+}
+.devweb-container .site-selection .text h4 {
+  color: #f2e6d8;
+  font-family: "novecento-sans", sans-serif;
+  font-size: clamp(12px, 0.8vw, 16px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: clamp(5px, 0.5vw, 10.6px);
+  margin-bottom: 2%;
+}
+.devweb-container .site-selection .text .description {
+  margin-bottom: 2%;
+}
+.devweb-container .site-selection .text .description,
+.devweb-container .site-selection .text h3 {
+  color: #f2e6d8;
+  font-family: "novecento-sans", sans-serif;
+  font-size: clamp(12px, 1vw, 20px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.devweb-container .site-selection .image-link {
+  grid-area: image;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 500px;
+}
+@media screen and (max-width: 992px) {
+  .devweb-container .site-selection .image-link {
+    width: 350px;
+  }
+}
+.devweb-container .site-selection .image-link a {
+  transition: all 350ms ease-in-out;
+}
+.devweb-container .site-selection .image-link a img {
+  width: 100%;
+  height: auto;
+}
+.devweb-container .site-selection .image-link a img:hover {
+  box-shadow: rgba(242, 230, 216, 0.2) 0px 8px 24px;
+}
+.devweb-container .site-selection .website-list {
+  grid-area: list;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+  height: 70%;
+  padding-top: 2%;
+}
+.devweb-container .site-selection .website-list .website {
+  cursor: pointer;
+  width: 12%;
+  position: relative;
+}
+.devweb-container .site-selection .website-list .website .filter-site {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: all 250ms ease-in-out;
+  box-shadow: 0px 150px 300px 10px inset rgba(13, 13, 13, 0.9);
+}
+.devweb-container .site-selection .website-list .website .filter-site .number {
+  position: absolute;
+  z-index: 5;
+  padding-left: 10px;
+  top: 8%;
+  color: rgba(242, 230, 216, 0.5);
+  font-family: "novecento-sans", sans-serif;
+  font-size: clamp(10px, 1vw, 19px);
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}
+.devweb-container .site-selection .website-list .website .filter-site h2 {
+  position: absolute;
+  z-index: 5;
+  color: #f2e6d8;
+  font-family: "novecento-sans", sans-serif;
+  font-size: clamp(10px, 1vw, 19px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  top: 15%;
+  padding-left: 10px;
+  text-transform: uppercase;
+  box-shadow: unset;
+  opacity: 0.5;
+}
+.devweb-container .site-selection .website-list .website .filter-site:hover {
+  box-shadow: 0px 20px 150px 10px inset rgba(13, 13, 13, 0.6);
+}
+.devweb-container .site-selection .website-list .website .filter-site:hover .number {
+  color: rgb(242, 230, 216);
+}
+.devweb-container .site-selection .website-list .website .filter-site:hover h2 {
+  opacity: 1;
 }/*# sourceMappingURL=index.css.map */

@@ -1,9 +1,141 @@
-.website-list {
-  display: flex;
-  width: 100%;
-  .website {
+.devweb-container {
+  position: relative;
+  z-index: 0;
+  height: 100dvh;
+  width: 100dvw;
+  overflow: hidden;
+  transition: all 350ms ease;
+
+  .site-selection {
+    width: 100%;
     height: 100%;
-    width: 15%;
-    aspect-ratio: 9/16;
+    backdrop-filter: blur(15px);
+    background: linear-gradient(
+      to bottom,
+      rgba($secondary, 0.5),
+      rgba($secondary, 0.2)
+    );
+    display: grid;
+    grid-template-areas:
+      'text image'
+      'list list';
+    gap: 2%;
+    grid-template-rows: 40% 60%;
+    justify-content: space-between;
+    .text {
+      grid-area: text;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 5%;
+      .number {
+        @include number;
+      }
+      h2 {
+        color: $primary;
+        font-family: $font;
+        @include h2;
+        letter-spacing: clamp(22px, 1.3vw, 25.6px);
+        @include sm {
+          letter-spacing: normal;
+        }
+      }
+      h4 {
+        color: $primary;
+        @include h4;
+        letter-spacing: clamp(5px, 0.5vw, 10.6px);
+        margin-bottom: 2%;
+      }
+      .description {
+        margin-bottom: 2%;
+      }
+      .description,
+      h3 {
+        color: $primary;
+        @include h3;
+        line-height: normal;
+      }
+    }
+    .image-link {
+      grid-area: image;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 500px;
+      @include md {
+        width: 350px;
+      }
+      a {
+        transition: all 350ms ease-in-out;
+
+        img {
+          width: 100%;
+          height: auto;
+          &:hover {
+            box-shadow: rgba($primary, 0.2) 0px 8px 24px;
+          }
+        }
+      }
+    }
+
+    .website-list {
+      grid-area: list;
+      display: flex;
+      justify-content: center;
+      z-index: 2;
+      height: 70%;
+      padding-top: 2%;
+      .website {
+        cursor: pointer;
+        width: 12%;
+        position: relative;
+
+        .filter-site {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          transition: all 250ms ease-in-out;
+          box-shadow: 0px 150px 300px 10px inset rgba($secondary, 0.9);
+
+          .number {
+            position: absolute;
+            z-index: 5;
+            padding-left: 10px;
+            top: 8%;
+            color: rgba(242, 230, 216, 0.5);
+            font-family: $font;
+            font-size: clamp(10px, 1vw, 19px);
+            font-style: normal;
+            font-weight: 800;
+            line-height: normal;
+          }
+          h2 {
+            position: absolute;
+            z-index: 5;
+            color: $primary;
+            font-family: $font;
+            font-size: clamp(10px, 1vw, 19px);
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            top: 15%;
+            padding-left: 10px;
+            text-transform: uppercase;
+            box-shadow: unset;
+            opacity: 0.5;
+          }
+          &:hover {
+            box-shadow: 0px 20px 150px 10px inset rgba($secondary, 0.6);
+            .number {
+              color: rgba(242, 230, 216, 1);
+            }
+            h2 {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
   }
 }
