@@ -39,20 +39,12 @@
       visibility: hidden;
     }
     .number {
-      color: rgba(242, 230, 216, 0.5);
-      font-family: $font;
-      font-size: clamp(50px, 10vw, 192px);
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
+      @include number;
     }
     h2 {
       color: $primary;
       font-family: $font;
-      font-size: clamp(22px, 1.6vw, 32px);
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
+      @include h2;
       letter-spacing: clamp(22px, 1.3vw, 25.6px);
       @include sm {
         letter-spacing: normal;
@@ -60,11 +52,7 @@
     }
     h4 {
       color: $primary;
-      font-family: $font;
-      font-size: clamp(12px, 0.8vw, 16px);
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
+      @include h4;
       letter-spacing: clamp(5px, 0.5vw, 10.6px);
       margin-bottom: 2%;
     }
@@ -74,10 +62,7 @@
     .description,
     h3 {
       color: $primary;
-      font-family: $font;
-      font-size: clamp(12px, 1vw, 20px);
-      font-style: normal;
-      font-weight: 700;
+      @include h3;
       line-height: normal;
     }
     h3:last-of-type {

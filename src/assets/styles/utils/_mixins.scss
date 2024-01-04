@@ -24,3 +24,32 @@
     @content;
   }
 }
+
+@mixin number {
+  color: rgba(242, 230, 216, 0.5);
+  font-family: $font;
+  font-size: clamp(50px, 10vw, 192px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+@mixin h2 {
+  font-family: $font;
+  font-size: clamp(22px, 1.6vw, 32px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+@mixin h3 {
+  font-family: $font;
+  font-size: clamp(12px, 1vw, 20px);
+  font-style: normal;
+  font-weight: 700;
+}
+@mixin h4 {
+  font-family: $font;
+  font-size: clamp(12px, 0.8vw, 16px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
