@@ -3,9 +3,16 @@ import { useState } from "react";
 
 const Devweb = () => {
   const [siteSelected, setSiteSelected] = useState(devwebLibrary[0]);
+  const [siteActive, setSiteActive] = useState();
+
   const handleClickSite = (site) => {
     setSiteSelected(site);
   }
+  const handleActive = (website) => {
+    setSiteActive(website);
+    console.log("active");
+  }
+
 
 
   return (
@@ -26,7 +33,10 @@ const Devweb = () => {
         </div>
         <div className="website-list">
           {devwebLibrary.map((website) => (
-            <div className="website" key={website.id} onClick={() => handleClickSite(website)} style={{ background: `url(${website.thumbnail}) no-repeat center`, backgroundSize: 'cover' }}>
+            <div className={`website${website === siteActive ? " active" : ""}`} key={website.id} onClick={() => {
+              handleClickSite(website);
+              handleActive(website);
+            }} style={{ background: `url(${website.thumbnail}) no-repeat center`, backgroundSize: 'cover' }}>
               <div className="filter-site">
                 <p className="number">{website?.number}</p>
                 <h2>{website?.title}</h2>

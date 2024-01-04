@@ -1053,6 +1053,7 @@ main {
   font-style: normal;
   font-weight: 800;
   line-height: normal;
+  transition: all 350ms ease-in-out;
 }
 .devweb-container .site-selection .website-list .website .filter-site h2 {
   position: absolute;
@@ -1068,6 +1069,7 @@ main {
   text-transform: uppercase;
   box-shadow: unset;
   opacity: 0.5;
+  transition: all 350ms ease-in-out;
 }
 .devweb-container .site-selection .website-list .website .filter-site:hover {
   box-shadow: 0px 20px 150px 10px inset rgba(13, 13, 13, 0.6);
@@ -1076,5 +1078,22 @@ main {
   color: rgb(242, 230, 216);
 }
 .devweb-container .site-selection .website-list .website .filter-site:hover h2 {
+  opacity: 1;
+}
+.devweb-container .site-selection .website-list .website.active {
+  box-shadow: 0 0 15px 2px rgba(1, 115, 138, 0.5);
+  z-index: 1;
+}
+.devweb-container .site-selection .website-list .website.active .filter-site {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: all 250ms ease-in-out;
+  box-shadow: 0px 150px 300px 10px inset rgba(13, 13, 13, 0.3);
+}
+.devweb-container .site-selection .website-list .website.active .filter-site .number {
+  color: rgb(242, 230, 216);
+}
+.devweb-container .site-selection .website-list .website.active .filter-site h2 {
   opacity: 1;
 }/*# sourceMappingURL=index.css.map */
