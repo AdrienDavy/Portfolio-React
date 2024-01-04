@@ -947,6 +947,12 @@ main {
   grid-template-rows: 40% 60%;
   justify-content: space-between;
 }
+@media screen and (max-width: 660px) {
+  .devweb-container .site-selection {
+    grid-template-areas: "text text" "image image" "list list";
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+}
 .devweb-container .site-selection .text {
   grid-area: text;
   display: flex;
@@ -991,6 +997,9 @@ main {
 .devweb-container .site-selection .text .description {
   margin-bottom: 2%;
 }
+.devweb-container .site-selection .text .description span {
+  color: #db6500;
+}
 .devweb-container .site-selection .text .description,
 .devweb-container .site-selection .text h3 {
   color: #f2e6d8;
@@ -1012,6 +1021,12 @@ main {
     width: 350px;
   }
 }
+@media screen and (max-width: 660px) {
+  .devweb-container .site-selection .image-link {
+    width: 80%;
+    margin: auto;
+  }
+}
 .devweb-container .site-selection .image-link a {
   transition: all 350ms ease-in-out;
 }
@@ -1030,10 +1045,26 @@ main {
   height: 70%;
   padding-top: 2%;
 }
+@media screen and (max-width: 660px) {
+  .devweb-container .site-selection .website-list {
+    height: 100%;
+    padding-top: 0;
+  }
+}
 .devweb-container .site-selection .website-list .website {
   cursor: pointer;
   width: 12%;
   position: relative;
+}
+@media screen and (max-width: 992px) {
+  .devweb-container .site-selection .website-list .website {
+    width: 15%;
+  }
+}
+@media screen and (max-width: 660px) {
+  .devweb-container .site-selection .website-list .website {
+    width: 100%;
+  }
 }
 .devweb-container .site-selection .website-list .website .filter-site {
   position: absolute;

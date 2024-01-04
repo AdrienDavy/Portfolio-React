@@ -1,5 +1,5 @@
 import devwebLibrary from "@devweb/index.devweb";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const Devweb = () => {
   const [siteSelected, setSiteSelected] = useState(devwebLibrary[0]);
@@ -12,6 +12,7 @@ const Devweb = () => {
     setSiteActive(website);
     console.log("active");
   }
+  const nouvelOeilLink = "https://www.nouvel-oeil.com/"
 
 
 
@@ -22,12 +23,23 @@ const Devweb = () => {
           <p className="number">{siteSelected?.number}</p>
           <h2>{siteSelected?.title}</h2>
           <h4>{siteSelected?.year} </h4>
-          <p className="description">{siteSelected?.description} </p>
+          <p className="description">{siteSelected?.description.includes("Nouvel Oeil") ? (
+            siteSelected?.description.split("Nouvel Oeil").map((part, index) => (
+              <React.Fragment key={index}>
+                {index > 0 && (
+                  <a href={nouvelOeilLink} target="_blank" rel="noreferrer" title="Vers le site de Nouvel Oeil">
+                    <span>Nouvel Oeil</span>
+                  </a>
+                )}
+                {part}
+              </React.Fragment>
+            ))
+          ) : siteSelected?.description} </p>
           {siteSelected?.software ? <h3>{siteSelected.software.join(" | ")} </h3> : null}
           {siteSelected?.langage ? <h3>{siteSelected.langage.join(" | ")} </h3> : null}
         </div>
         <div className="image-link">
-          <a href={siteSelected?.link} target="_blank" rel="noreferrer">
+          <a href={siteSelected?.link} target="_blank" rel="noreferrer" title={`Vers le site de ${siteSelected?.title}`}>
             <img src={siteSelected?.thumbnail} alt={siteSelected?.title} />
           </a>
         </div>
@@ -44,9 +56,10 @@ const Devweb = () => {
             </div>
           ))}
         </div>
-      </div>)}
+      </div>)
+      }
 
-    </div>
+    </div >
   )
 }
 

@@ -22,6 +22,13 @@
     gap: 2%;
     grid-template-rows: 40% 60%;
     justify-content: space-between;
+    @include sm {
+      grid-template-areas:
+        'text text'
+        'image image'
+        'list list';
+      grid-template-rows: 1fr 1fr 1fr;
+    }
     .text {
       grid-area: text;
       display: flex;
@@ -49,6 +56,9 @@
       }
       .description {
         margin-bottom: 2%;
+        span {
+          color: $quaternary;
+        }
       }
       .description,
       h3 {
@@ -65,6 +75,10 @@
       width: 500px;
       @include md {
         width: 350px;
+      }
+      @include sm {
+        width: 80%;
+        margin: auto;
       }
       a {
         transition: all 350ms ease-in-out;
@@ -86,11 +100,20 @@
       z-index: 2;
       height: 70%;
       padding-top: 2%;
+      @include sm {
+        height: 100%;
+        padding-top: 0;
+      }
       .website {
         cursor: pointer;
         width: 12%;
         position: relative;
-
+        @include md {
+          width: 15%;
+        }
+        @include sm {
+          width: 100%;
+        }
         .filter-site {
           position: absolute;
           width: 100%;
