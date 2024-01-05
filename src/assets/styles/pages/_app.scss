@@ -1,4 +1,16 @@
 main {
   height: 100dvh;
   width: 100dvw;
+  background-color: $secondary;
+  overflow: hidden;
+}
+/* styles.css */
+.fade-in {
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.fade-out {
+  opacity: 1;
+  transition: all 1s ease;
 }

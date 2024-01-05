@@ -11,10 +11,12 @@ import 'swiper/css/pagination';
 import 'swiper/swiper-bundle.css';
 import { FreeMode, Scrollbar, Mousewheel } from 'swiper/modules';
 import { useVideo } from "@contexts/VideoContext";
+import { useSound } from "../contexts/soundContext";
 
 const VideoPlayer = () => {
 
   const { playAnimation, setPlayAnimation } = useVideo();
+  const { isMuted } = useSound();
   const location = useLocation();
   const isCgiPage = location.pathname.includes("/cgi");
   const libraryToDisplay = isCgiPage ? cgiLibrary : videoLibrary;
@@ -116,7 +118,7 @@ const VideoPlayer = () => {
             </div >
             <div className={playAnimation ? "thumbnail-filter hide" : "thumbnail-filter"} onClick={() => { handleTogglePlayPause(), responsiveToggleLibraryButton() }}  ></div>
             <img src={selectedVideo?.thumbnail} alt={selectedVideo?.title} className={playAnimation ? "thumbnail hide" : "thumbnail"} />
-            <video ref={videoRef} src={selectedVideo?.video} muted controls className="current-video" />
+            <video ref={videoRef} src={selectedVideo?.video} muted={isMuted ? true : false} controls className="current-video" />
             <div className={playAnimation ? "back-button" : "back-button hide"} title="Retour à la librarie" onClick={() => handleTogglePlayPause()} >
               <img src={backtoLibrary} alt="Back to Library" />
             </div>

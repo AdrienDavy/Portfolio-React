@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #f2e6d8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <polygon class="cls-1" points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+  <line class="cls-1" x1="23" y1="9" x2="17" y2="15"/>
+  <line class="cls-1" x1="17" y1="9" x2="23" y2="15"/>
+</svg>
