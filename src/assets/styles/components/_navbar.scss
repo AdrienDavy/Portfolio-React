@@ -3,6 +3,30 @@
   visibility: visible;
   position: fixed;
   z-index: 100;
+  width: 100dvw;
+  height: 10dvh;
+  bottom: 20px;
+  display: grid;
+  place-items: center;
+  translate: 0 0;
+  transition: all 0.4s ease-in-out;
+  &.isPlaying {
+    @media screen and (min-width: 660px) {
+      translate: 0 120px;
+    }
+  }
+  @include sm {
+    height: 100dvh;
+    bottom: 0;
+    display: grid;
+    place-items: center;
+    translate: 100% 0;
+    transition: all 0.4s ease-in-out;
+    z-index: 100;
+    &.open {
+      translate: 0 0;
+    }
+  }
 
   button {
     background: transparent !important;
@@ -12,9 +36,7 @@
   }
 
   .navbar-container {
-    width: 100dvw;
-    position: fixed;
-    bottom: 20px;
+    width: 100%;
     z-index: 100;
     overflow: hidden;
 
@@ -87,7 +109,7 @@
 
     &:hover {
       #logo-white {
-        filter: drop-shadow(0 0 10px rgba($primary, 0.5));
+        filter: drop-shadow(0 0 5px rgba($primary, 0.5));
       }
     }
     #logo {
@@ -132,5 +154,52 @@
       background-position: center center;
       z-index: 10;
     }
+  }
+}
+
+//MUTE BUTTON -----------------------------------------------
+
+.toggleMute {
+  position: absolute;
+  top: 8px;
+  right: 21px;
+  margin: 20px;
+  width: 20px;
+  cursor: pointer;
+  z-index: 7;
+  opacity: 1;
+  visibility: visible;
+  transition: all 350ms ease;
+  &.hide {
+    opacity: 0;
+    visibility: hidden;
+  }
+  @include sm {
+    display: none;
+  }
+  &:hover {
+    animation: bounce 1s infinite;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.2);
+  }
+
+  50% {
+    transform: scale(0.9);
+  }
+
+  75% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }

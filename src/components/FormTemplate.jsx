@@ -35,7 +35,7 @@ const FormTemplate = () => {
             pattern="(^[a-zA-ZÀ-ÖØ-öø-ÿ]{1,30})"
             title="Veuillez renseigner votre prénom"
             required
-            placeholder="John *"
+            placeholder="Prénom *"
             id="firstname"
             autoComplete="nope"
           />
@@ -45,12 +45,12 @@ const FormTemplate = () => {
             pattern="(^[a-zA-ZÀ-ÖØ-öø-ÿ]{1,30})"
             title="Veuillez renseigner votre nom"
             required
-            placeholder="Doe *"
+            placeholder="Nom *"
             id="lastname"
             autoComplete="nope"
           />
           <label htmlFor="email"></label>
-          <input type="email" name="email" id="email" required placeholder="johndoe@gmail.com *" key="email" />
+          <input type="email" name="email" id="email" required placeholder="pierredupont@gmail.com *" key="email" />
           <label htmlFor="message"></label>
           <textarea name="message" placeholder="Commentaires... *" id="message" rows="5" cols="33" required />
           <button className="btn-secondary">
