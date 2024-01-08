@@ -8,7 +8,7 @@ const Videos = () => {
   return (
     <motion.div
       className="fade"
-      initial={{ x: -250, opacity: isVideosPage ? 0 : 1 }}
+      initial={{ x: -100, opacity: isVideosPage ? 0 : 1 }}
       animate={{ x: 0, opacity: isVideosPage ? 1 : 0 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}

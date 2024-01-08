@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <motion.div
       className="fade"
-      initial={{ scale: 1.2, opacity: isHomePage ? 0 : 1 }}
+      initial={{ scale: 1.1, opacity: isHomePage ? 0 : 1 }}
       animate={{ scale: 1, opacity: isHomePage ? 1 : 0 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}

@@ -8,7 +8,7 @@ const Contact = () => {
   return (
     <motion.div
       className="fade"
-      initial={{ x: 250, opacity: isContactPage ? 0 : 1 }}
+      initial={{ x: 100, opacity: isContactPage ? 0 : 1 }}
       animate={{ x: 0, opacity: isContactPage ? 1 : 0 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
