@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import deniedSound from "../assets/sounds/denied.mp3";
@@ -32,7 +33,7 @@ const FormTemplate = () => {
   const fieldTranslations = {
     firstname: "votre prénom",
     lastname: "votre nom",
-    email: "adresse email",
+    email: "une adresse mail",
     message: "un message",
   };
 
@@ -75,7 +76,7 @@ const FormTemplate = () => {
     setErrorMessage("");
 
     if (allFieldsFilled && !isEmailValid(emailInput.value)) {
-      setErrorMessage(`Veuillez entrer une ${fieldTranslations['email']} valide.`);
+      setErrorMessage(`Veuillez entrer ${fieldTranslations['email']} valide.`);
       setFormErrors((prev) => ({
         ...prev,
         firstname: !isFormFilled.firstname,
@@ -150,7 +151,6 @@ const FormTemplate = () => {
             id="firstname"
             autoComplete="nope"
             onChange={handleInputChange}
-            className={formErrors.firstname ? 'error' : ''}
           />
           <label htmlFor="lastname"></label>
           <input type="text"
@@ -162,13 +162,27 @@ const FormTemplate = () => {
             id="lastname"
             autoComplete="nope"
             onChange={handleInputChange}
-            className={formErrors.firstname ? 'error' : ''}
           />
-          <span>{errorMessage}</span>
           <label htmlFor="email"></label>
-          <input type="email" name="email" id="email" required placeholder="pierredupont@gmail.com *" key="email" onChange={handleInputChange} title="Veuillez renseigner votre adresse mail" className={formErrors.firstname ? 'error' : ''} />
+          <input
+            type="email"
+            name="email" id="email"
+            required
+            placeholder="pierredupont@gmail.com *"
+            key="email"
+            onChange={handleInputChange}
+            title="Veuillez renseigner votre adresse mail"
+          />
           <label htmlFor="message"></label>
-          <textarea name="message" placeholder="Commentaires... *" id="message" rows="5" cols="33" required onChange={handleInputChange} className={formErrors.firstname ? 'error' : ''} />
+          <textarea
+            name="message"
+            placeholder="Commentaires... *"
+            id="message"
+            rows="5"
+            cols="33"
+            required
+            onChange={handleInputChange} />
+          {errorMessage ? <span id='errorMessage'>{errorMessage}</span> : null}
           <button className={isFormValid} onClick={handleClickSubmit}>
             <p><input type="submit" value={buttonText} /></p>
             <span></span>

@@ -638,7 +638,7 @@
   gap: 20px;
   width: 600px;
   /* Supprimez la bordure d'outline pour les éléments input et textarea */
-  grid-template-areas: "firstname lastname email" "message message message" "submit submit submit";
+  grid-template-areas: "firstname lastname email" "message message message" "error error error" "submit submit submit";
 }
 @media screen and (max-width: 660px) {
   .form-container form {
@@ -690,6 +690,26 @@
 
 #email {
   grid-area: email;
+}
+
+#errorMessage {
+  grid-area: error;
+  text-align: center;
+  color: #f2e6d8;
+  font-family: "novecento-sans", sans-serif;
+  font-size: clamp(12px, 1vw, 20px);
+  font-style: normal;
+  font-weight: 700;
+  background-color: rgba(220, 20, 60, 0.5);
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  padding: 5px;
+}
+@media screen and (max-width: 660px) {
+  #errorMessage {
+    width: 30%;
+  }
 }
 
 #message {

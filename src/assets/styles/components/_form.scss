@@ -28,6 +28,7 @@
     grid-template-areas:
       'firstname lastname email'
       'message message message'
+      'error error error'
       'submit submit submit';
 
     input,
@@ -48,6 +49,22 @@
 }
 #email {
   grid-area: email;
+}
+#errorMessage {
+  grid-area: error;
+  text-align: center;
+  color: $primary;
+  font-family: $font;
+  font-size: clamp(12px, 1vw, 20px);
+  font-style: normal;
+  font-weight: 700;
+  background-color: rgba(crimson, 0.5);
+  width: fit-content;
+  margin: auto;
+  padding: 5px;
+  @include sm {
+    width: 30%;
+  }
 }
 #message {
   grid-area: message;
