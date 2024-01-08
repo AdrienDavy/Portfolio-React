@@ -20,7 +20,7 @@ const Devweb = () => {
   return (
     <motion.div
       className="fade"
-      initial={{ x: 250, opacity: isDevWebPage ? 1 : 0 }}
+      initial={{ x: 100, opacity: isDevWebPage ? 1 : 0 }}
       animate={{ x: 0, opacity: isDevWebPage ? 0 : 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}

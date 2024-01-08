@@ -7,7 +7,7 @@ const Cgi = () => {
   return (
     <motion.div
       className="fade"
-      initial={{ x: -250, opacity: isCgiPage ? 0 : 1 }}
+      initial={{ x: -100, opacity: isCgiPage ? 0 : 1 }}
       animate={{ x: 0, opacity: isCgiPage ? 1 : 0 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
