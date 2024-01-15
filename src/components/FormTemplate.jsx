@@ -62,7 +62,6 @@ const FormTemplate = () => {
     } catch (error) {
       formMess.classList.add("visible");
       formMess.innerHTML = "<p class='error'>Une erreur s'est produite, veuillez réessayer</p>";
-      console.log(error.text);
       throw error; // Ajout de cette ligne pour propager l'erreur
     }
   };

@@ -11,6 +11,7 @@ import selectSound from "../assets/sounds/selectSound.mp3";
 import clickMenuSound from "../assets/sounds/clickMenu.mp3";
 import soundOnIcon from '../assets/img/volume.svg';
 import muteIcon from '../assets/img/volume-x.svg';
+import linkedIn from '../assets/img/linkedin.svg';
 import { useSound } from "../contexts/soundContext";
 
 const Navbar = () => {
@@ -150,6 +151,13 @@ const Navbar = () => {
                 <li><p>Contact</p><span></span></li>
               </NavLink>
             </button>
+            <a href="https://www.linkedin.com/in/adrien-davy/"
+              onMouseOver={handleButtonClick}
+              onMouseEnter={handleMouseEnter}
+              target="_blank" rel="noreferrer"
+            >
+              <img className="linkedin-icon" src={linkedIn} alt="Logo LinkedIn" title="Vers mon LinkedIn" />
+            </a>
           </ul>
         </nav>
       </header >

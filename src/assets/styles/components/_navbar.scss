@@ -72,6 +72,21 @@
       justify-content: space-evenly;
       align-items: center;
       position: relative;
+      .linkedin-icon {
+        width: 40px;
+        height: 40px;
+        transition: all 350ms ease;
+        filter: drop-shadow(0 0 5px rgba($tertiary, 0.5));
+
+        &:hover {
+          transform: scale(1.1);
+          filter: drop-shadow(0 0 8px rgba($tertiary, 1));
+        }
+        @include md {
+          width: 30px;
+          height: 30px;
+        }
+      }
     }
   }
 }
@@ -160,9 +175,9 @@
 //MUTE BUTTON -----------------------------------------------
 
 .toggleMute {
-  position: absolute;
-  top: 8px;
-  right: 21px;
+  position: fixed;
+  top: 3%;
+  right: 1%;
   margin: 20px;
   width: 20px;
   cursor: pointer;
@@ -175,7 +190,7 @@
     visibility: hidden;
   }
   @include sm {
-    display: none;
+    top: 10%;
   }
   &:hover {
     animation: bounce 1s infinite;
