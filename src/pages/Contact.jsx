@@ -1,10 +1,46 @@
 import FormTemplate from "@components/FormTemplate"
-import background from '@videoSources/home.mp4';
+import contact from '@videoSources/contact.mp4';
+import lookAround from '@videoSources/lookaround.mp4';
 import { useTransitionPage } from "../contexts/TransitionContext";
 import { motion } from "framer-motion";
+import { useSound } from "../contexts/soundContext";
+import { useWatchPlay } from "../contexts/watchPlayContext";
+import { useEffect, useRef } from "react";
 
 const Contact = () => {
   const { isContactPage } = useTransitionPage();
+  const { isMuted } = useSound();
+  const { isContactPlayed, setIsContactPlayed, currentContactVideo, setCurrentContactVideo } = useWatchPlay();
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const handleVideoEnd = () => {
+      // Quand la vidéo 'contact' se termine, passez à la vidéo 'lookAround'
+      setCurrentContactVideo('lookAround');
+    };
+
+    // Si c'est la première fois que l'on arrive sur la page Home
+    if (!isContactPlayed) {
+      setIsContactPlayed(true);
+      setCurrentContactVideo('contact');
+    }
+    const currentContactVideoRef = videoRef.current;
+    // Écoutez l'événement 'ended' pour détecter la fin de la vidéo 'contact'
+    if (currentContactVideoRef) {
+      currentContactVideoRef.addEventListener('ended', handleVideoEnd);
+      currentContactVideoRef.onloadeddata = () => {
+        currentContactVideoRef.play();
+      };
+    }
+
+    // Nettoyez l'écouteur d'événements lors du démontage du composant
+    return () => {
+      if (currentContactVideoRef) {
+        currentContactVideoRef.removeEventListener('ended', handleVideoEnd);
+      }
+    };
+  }, [isContactPlayed, setIsContactPlayed, currentContactVideo, setCurrentContactVideo]);
+
   return (
     <motion.div
       className="fade"
@@ -17,8 +53,27 @@ const Contact = () => {
         <div className="form">
           <h1>Contactez moi</h1>
           <FormTemplate />
+          <div className="cv-container">
+            <a href="/src/assets/img/CV Adrien Davy 2023 - Développeur Web et Web Mobile.pdf" target="_blank" rel="noreferrer" download="CV Adrien Davy 2023 - Développeur Web et Web Mobile.pdf" title="Télécharger mon CV">
+              Télécharger mon CV
+            </a>
+            <hr style={{ width: "100%" }} />
+            <a href="https://www.figma.com/proto/FUUidIH4KCjapVE2AGV6or/MAQUETTE-PORTFOLIO-VERSION-2?node-id=81-2605&starting-point-node-id=1%3A5&scaling=scale-down&mode=design&t=hFr8ADpEK9ZO5Wc0-1"
+              target="_blank" rel="noreferrer"
+              title="Voir la maquette de ce portfolio sur Figma"
+            >
+              Voir la maquette de ce portfolio
+            </a>
+          </div>
         </div>
-        <video src={background} autoPlay muted loop />
+        {currentContactVideo === 'lookAround' ?
+          <video id='lookAroundId' className='fade-out' ref={videoRef} src={lookAround} muted={isMuted ? "muted" : ""} loop type='video/mp4' /> :
+          <>
+            <video id='contactId' className='fade-out' ref={videoRef} muted={isMuted ? "muted" : ""} type='video/mp4'>
+              <source src={contact} type='video/mp4' />
+              <track default kind="subtitles" src="./contact_captions.vtt" srcLang="fr" label="Français" type="text/vtt" />
+            </video>
+          </>}
       </div>
     </motion.div >
   )

@@ -9,26 +9,29 @@ import { VideoProvider } from "@contexts/VideoContext";
 import { TargetProvider } from "@contexts/TargetContext";
 import { SoundProvider } from "@contexts/soundContext";
 import { TransitionPageProvider } from "@contexts/TransitionContext";
+import { WatchPlayProvider } from "./contexts/watchPlayContext";
 function App() {
   return (
-    <SoundProvider>
-      <VideoProvider>
-        <TargetProvider>
-          <TransitionPageProvider>
-            <main>
-              <Navbar />
-              <Routes>
-                <Route index path="/" element={<Home />} />
-                <Route path="/cgi" element={<Cgi />} />
-                <Route path="/devweb" element={<Devweb />} />
-                <Route path="/videos" element={<Videos />} />
-                <Route path="/contact" element={<Contact />} />
-              </Routes>
-            </main>
-          </TransitionPageProvider>
-        </TargetProvider>
-      </VideoProvider>
-    </SoundProvider>
+    <WatchPlayProvider>
+      <SoundProvider>
+        <VideoProvider>
+          <TargetProvider>
+            <TransitionPageProvider>
+              <main>
+                <Navbar />
+                <Routes>
+                  <Route index path="/" element={<Home />} />
+                  <Route path="/cgi" element={<Cgi />} />
+                  <Route path="/devweb" element={<Devweb />} />
+                  <Route path="/videos" element={<Videos />} />
+                  <Route path="/contact" element={<Contact />} />
+                </Routes>
+              </main>
+            </TransitionPageProvider>
+          </TargetProvider>
+        </VideoProvider>
+      </SoundProvider>
+    </WatchPlayProvider>
   )
 }
 
