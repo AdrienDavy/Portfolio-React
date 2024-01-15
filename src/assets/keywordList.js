@@ -1,3 +1,4 @@
-export const soft = { after: 'Adobe After Effects', photoshop: 'Adobe Photoshop', premiere: 'Adobe Premiere Pro', c4d: 'Cinema 4D', octane: 'Octane Render', kitbash: 'KitBash 3D', mixamo: "Mixamo", quixel: 'Quixel Bridge', houdini: 'Houdini' }
+export const soft = { xd: "Adobe XD", illustrator: "Adobe Illustrator", after: 'Adobe After Effects', photoshop: 'Adobe Photoshop', premiere: 'Adobe Premiere Pro', c4d: 'Cinema 4D', octane: 'Octane Render', kitbash: 'KitBash 3D', mixamo: "Mixamo", quixel: 'Quixel Bridge', houdini: 'Houdini' }
 export const work = { drone: 'drone', cadrage: 'Cadrage', capta: 'Captation', drphoto: 'Direction de la photographie', fx: 'Effets Spéciaux', montage: 'Montage vidéo', storyboard: 'Storyboarding', etalo: 'Étalonnage' }
 export const category = { clip: 'Clip musical', aftermovie: 'Aftermovie', trailer: 'Trailer', liveReport: 'Live report', travel: 'Voyage', art: "Art digital" }
+export const langage = { html: "HTML", css: "CSS", sass: "SASS", js: "JavaScript", php: "PHP", react: "React JS", wp: 'Wordpress', acf: 'Plugin ACF', swiper: "Swiper JS" }

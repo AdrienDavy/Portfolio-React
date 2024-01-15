@@ -1,17 +1,33 @@
 .header {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0px);
   position: fixed;
-  bottom: 0;
   z-index: 100;
-  transition: all 350ms ease;
-
-  &.hide {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(100px);
+  width: 100dvw;
+  height: 10dvh;
+  bottom: 20px;
+  display: grid;
+  place-items: center;
+  translate: 0 0;
+  transition: all 0.4s ease-in-out;
+  &.isPlaying {
+    @media screen and (min-width: 660px) {
+      translate: 0 120px;
+    }
   }
+  @include sm {
+    height: 100dvh;
+    bottom: 0;
+    display: grid;
+    place-items: center;
+    translate: 100% 0;
+    transition: all 0.4s ease-in-out;
+    z-index: 100;
+    &.open {
+      translate: 0 0;
+    }
+  }
+
   button {
     background: transparent !important;
     border: 0;
@@ -20,10 +36,9 @@
   }
 
   .navbar-container {
-    width: 100dvw;
-    position: fixed;
-    bottom: 20px;
+    width: 100%;
     z-index: 100;
+    overflow: hidden;
 
     @include sm {
       height: 100dvh;
@@ -32,6 +47,7 @@
       place-items: center;
       visibility: hidden;
       opacity: 0;
+      translate: 100% 0;
       transition: all 0.4s ease-in-out;
       &.open {
         height: 100dvh;
@@ -42,10 +58,11 @@
         opacity: 1;
         transition: all 0.4s ease-in-out;
         backdrop-filter: blur(5px);
+        translate: 0 0;
         background: rgba($secondary, 0.8);
       }
       .overlay {
-        height: 35dvh;
+        height: 60dvh;
         flex-flow: column wrap;
       }
     }
@@ -55,6 +72,21 @@
       justify-content: space-evenly;
       align-items: center;
       position: relative;
+      .linkedin-icon {
+        width: 40px;
+        height: 40px;
+        transition: all 350ms ease;
+        filter: drop-shadow(0 0 5px rgba($tertiary, 0.5));
+
+        &:hover {
+          transform: scale(1.1);
+          filter: drop-shadow(0 0 8px rgba($tertiary, 1));
+        }
+        @include md {
+          width: 30px;
+          height: 30px;
+        }
+      }
     }
   }
 }
@@ -92,7 +124,7 @@
 
     &:hover {
       #logo-white {
-        filter: drop-shadow(0 0 10px rgba($primary, 0.5));
+        filter: drop-shadow(0 0 5px rgba($primary, 0.5));
       }
     }
     #logo {
@@ -137,5 +169,52 @@
       background-position: center center;
       z-index: 10;
     }
+  }
+}
+
+//MUTE BUTTON -----------------------------------------------
+
+.toggleMute {
+  position: fixed;
+  top: 3%;
+  right: 1%;
+  margin: 20px;
+  width: 20px;
+  cursor: pointer;
+  z-index: 7;
+  opacity: 1;
+  visibility: visible;
+  transition: all 350ms ease;
+  &.hide {
+    opacity: 0;
+    visibility: hidden;
+  }
+  @include sm {
+    top: 10%;
+  }
+  &:hover {
+    animation: bounce 1s infinite;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.2);
+  }
+
+  50% {
+    transform: scale(0.9);
+  }
+
+  75% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }

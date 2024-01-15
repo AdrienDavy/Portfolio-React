@@ -28,24 +28,44 @@
       margin: 50px 0;
       text-align: center;
       color: $primary;
-      font-family: $font;
-      font-size: 2rem;
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
+      @include h1;
       letter-spacing: 1.6rem;
       text-transform: uppercase;
       z-index: 51;
       position: relative;
       @include sm {
         font-size: 1rem;
-        letter-spacing: 1rem;
+        letter-spacing: 0.5rem;
         line-height: 1.5rem;
         padding: 0 140px;
+      }
+    }
+    .cv-container {
+      margin-top: 2%;
+      display: grid;
+      place-items: center;
+      background-color: rgba($secondary, $alpha: 0.5);
+      padding: 0.5% 1%;
+      a {
+        @include p;
+        color: $primary;
+        transition: all ease 0.3s;
+        &:hover {
+          color: $tertiary;
+        }
       }
     }
   }
   video {
     z-index: 0;
+    @include sm {
+      // display: none;
+      height: 50%;
+    }
   }
+}
+video::cue {
+  background-color: rgba($secondary, 0.5);
+  text-shadow: 0 0 15px 15px rgba($secondary, 0.5);
+  @include subtitles;
 }
