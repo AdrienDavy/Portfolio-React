@@ -35,7 +35,7 @@
 }
 @mixin h1 {
   font-family: $font;
-  font-size: clamp(25px, 1.6vw, 40px);
+  font-size: clamp(16px, 1.6vw, 40px);
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -62,7 +62,7 @@
 }
 @mixin p {
   font-family: $font;
-  font-size: clamp(10px, 1vw, 16px);
+  font-size: clamp(12px, 1vw, 16px);
   font-style: normal;
   font-weight: 700;
   line-height: 30px;
