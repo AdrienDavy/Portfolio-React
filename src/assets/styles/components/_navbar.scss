@@ -176,7 +176,7 @@
 
 .toggleMute {
   position: fixed;
-  top: 3%;
+  top: 20px;
   right: 1%;
   margin: 20px;
   width: 20px;
@@ -190,7 +190,7 @@
     visibility: hidden;
   }
   @include sm {
-    top: 10%;
+    top: 50px;
   }
   &:hover {
     animation: bounce 1s infinite;

@@ -191,7 +191,7 @@
 
 .toggleMute {
   position: fixed;
-  top: 3%;
+  top: 20px;
   right: 1%;
   margin: 20px;
   width: 20px;
@@ -207,7 +207,7 @@
 }
 @media screen and (max-width: 660px) {
   .toggleMute {
-    top: 10%;
+    top: 50px;
   }
 }
 .toggleMute:hover {
@@ -355,7 +355,6 @@
   line-height: normal;
   letter-spacing: 0.9rem;
   padding-left: 0.9rem;
-  text-transform: uppercase;
   border-bottom: none !important;
   display: flex;
   align-items: center;
@@ -1183,7 +1182,7 @@ main {
 }
 .home-container .mode {
   position: fixed;
-  top: 8%;
+  top: 75px;
   right: 2%;
   font-family: "novecento-sans", sans-serif;
   font-size: clamp(12px, 1vw, 16px);
@@ -1195,6 +1194,11 @@ main {
   cursor: pointer;
   z-index: 100;
 }
+@media screen and (max-width: 660px) {
+  .home-container .mode {
+    top: 100px;
+  }
+}
 .home-container .mode span {
   transition: all 350ms ease;
   text-shadow: 0 0 0 #01738a, 0 0 0 #01738a, 0 0 0 #01738a, 0 0 0 #01738a;
@@ -1202,12 +1206,66 @@ main {
 .home-container .mode:hover > span {
   text-shadow: 0 0 25px #01738a, 0 0 25px #01738a, 0 0 50px #01738a, 0 0 100px #01738a;
 }
-.home-container video {
+.home-container .about-container .launch-about-background {
+  top: 0;
+  left: 0;
+  display: flex;
+  place-items: center;
+  width: 100dvw;
+  height: 100dvh;
+  position: fixed;
+  background-color: rgba(13, 13, 13, 0.8);
+  opacity: 1;
+  z-index: 5;
+  transition: all 1s ease;
+}
+.home-container .about-container .launch-about-background.hide {
+  opacity: 0;
+}
+.home-container .about-container .launch-about-background .launch-about {
+  padding: 20px;
+}
+.home-container .about-container .launch-about-background .launch-about p {
+  color: #f2e6d8;
+  font-family: "novecento-sans", sans-serif;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 0.5rem;
+  padding-left: 0.5rem;
+  border-bottom: none !important;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+@media screen and (max-width: 1024px) {
+  .home-container .about-container .launch-about-background .launch-about p {
+    font-size: 0.8rem;
+    letter-spacing: 0.6rem;
+    padding-left: 0.6rem;
+    width: 140px;
+    height: 30px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .home-container .about-container .launch-about-background .launch-about p {
+    font-size: 0.6rem;
+    letter-spacing: 0.2rem;
+    padding-left: 0.2rem;
+    width: 120px;
+    height: 20px;
+  }
+}
+.home-container .about-container video {
   opacity: 1;
   animation: fade 2s ease-in-out;
 }
 @media screen and (max-width: 660px) {
-  .home-container video {
+  .home-container .about-container {
     height: 50%;
   }
 }
@@ -1296,7 +1354,7 @@ video::cue {
   font-size: clamp(22px, 1.6vw, 32px);
   font-style: normal;
   font-weight: 700;
-  line-height: 18em;
+  line-height: 20em;
 }
 @media screen and (max-width: 660px) {
   video::cue {
@@ -1396,7 +1454,7 @@ video::cue {
   font-size: clamp(22px, 1.6vw, 32px);
   font-style: normal;
   font-weight: 700;
-  line-height: 18em;
+  line-height: 20em;
 }
 @media screen and (max-width: 660px) {
   video::cue {
@@ -1500,6 +1558,7 @@ video::cue {
   align-items: center;
   justify-content: flex-end;
   width: 500px;
+  position: relative;
 }
 @media screen and (max-width: 992px) {
   .devweb-container .site-selection .image-link {
@@ -1515,12 +1574,30 @@ video::cue {
 .devweb-container .site-selection .image-link a {
   transition: all 350ms ease-in-out;
 }
+.devweb-container .site-selection .image-link a p {
+  font-family: "novecento-sans", sans-serif;
+  font-size: clamp(10px, 1vw, 16px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+  color: #f2e6d8;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  background-color: rgba(13, 13, 13, 0.8);
+  padding: 2%;
+  transition: all 350ms ease-in-out;
+}
 .devweb-container .site-selection .image-link a img {
   width: 100%;
   height: auto;
 }
 .devweb-container .site-selection .image-link a img:hover {
   box-shadow: rgba(242, 230, 216, 0.2) 0px 8px 24px;
+}
+.devweb-container .site-selection .image-link a:hover p {
+  color: #db6500;
 }
 .devweb-container .site-selection .website-list {
   grid-area: list;

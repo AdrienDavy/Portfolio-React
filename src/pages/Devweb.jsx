@@ -47,7 +47,9 @@ const Devweb = () => {
             {siteSelected?.langage ? <h3>{siteSelected.langage.join(" | ")} </h3> : null}
           </div>
           <div className="image-link">
+
             <a href={siteSelected?.link} target="_blank" rel="noreferrer" title={`Vers le site de ${siteSelected?.title}`}>
+              <p>Voir le site web</p>
               <img src={siteSelected?.thumbnail} alt={siteSelected?.title} />
             </a>
           </div>

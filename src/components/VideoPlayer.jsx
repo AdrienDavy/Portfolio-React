@@ -23,48 +23,58 @@ const VideoPlayer = () => {
   const [selectedVideo, setSelectedVideo] = useState(isCgiPage ? cgiLibrary[0] : videoLibrary[0]);
   const [isSlided, setIsSlided] = useState(true);
   const videoRef = useRef(null);
+
   useEffect(() => {
-    // Fonction de gestionnaire de redimensionnement
     const handleResize = () => {
-      // Mettre à jour l'état en fonction de la largeur de la fenêtre
       setIsSlided(window.innerWidth <= 660);
     };
 
-    // Ajouter un écouteur d'événement de redimensionnement
     window.addEventListener('resize', handleResize);
-
-    // Appeler la fonction de gestionnaire de redimensionnement une fois lors du montage
     handleResize();
 
-    // Nettoyer l'écouteur d'événement lors du démontage du composant
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.src = selectedVideo.video;
-      videoRef.current.load();
+    const handleVideoLoaded = async () => {
+      if (videoRef.current) {
+        try {
+          await videoRef.current.load();
+          // La vidéo est chargée, vous pouvez maintenant démarrer la lecture si nécessaire.
+        } catch (error) {
+          console.error("Erreur de chargement de la vidéo", error);
+        }
+      }
+    };
+
+    if (selectedVideo) {
+      handleVideoLoaded();
     }
   }, [selectedVideo]);
-
 
   const handleClickVideo = (video) => {
     setSelectedVideo(video);
   };
 
   const responsiveToggleLibraryButton = () => {
-    if (window.innerWidth <= 660)
+    if (window.innerWidth <= 660) {
       setIsSlided(!isSlided);
+    }
   }
 
-  const handleTogglePlayPause = () => {
-    !playAnimation ?
-      setTimeout(() => {
-        videoRef.current.play();
-      }, 150) :
+  const handleTogglePlayPause = async () => {
+    if (!playAnimation) {
+      try {
+        await videoRef.current.play();
+      } catch (error) {
+        console.error("Erreur de lecture de la vidéo", error);
+      }
+    } else {
       videoRef.current.pause();
+    }
+
     setPlayAnimation(!playAnimation);
     responsiveToggleLibraryButton();
   };
@@ -118,7 +128,7 @@ const VideoPlayer = () => {
             </div >
             <div className={playAnimation ? "thumbnail-filter hide" : "thumbnail-filter"} onClick={() => { handleTogglePlayPause(), responsiveToggleLibraryButton() }}  ></div>
             <img src={selectedVideo?.thumbnail} alt={selectedVideo?.title} className={playAnimation ? "thumbnail hide" : "thumbnail"} />
-            <video ref={videoRef} src={selectedVideo?.video} muted={isMuted ? true : false} controls className="current-video" />
+            <video rel="preload" ref={videoRef} src={selectedVideo?.video} muted={isMuted ? true : false} controls className="current-video" />
             <div className={playAnimation ? "back-button" : "back-button hide"} title="Retour à la librarie" onClick={() => handleTogglePlayPause()} >
               <img src={backtoLibrary} alt="Back to Library" />
             </div>

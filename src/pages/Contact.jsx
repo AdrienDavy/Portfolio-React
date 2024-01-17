@@ -54,16 +54,10 @@ const Contact = () => {
           <h1>Contactez moi</h1>
           <FormTemplate />
           <div className="cv-container">
-            <a href="/src/assets/img/CV Adrien Davy 2023 - Développeur Web et Web Mobile.pdf" target="_blank" rel="noreferrer" download="CV Adrien Davy 2023 - Développeur Web et Web Mobile.pdf" title="Télécharger mon CV">
+            <a href="cv.pdf" target="_blank" rel="noreferrer" download="CV Adrien Davy 2023 - Développeur Web et Web Mobile.pdf" title="Télécharger mon CV">
               Télécharger mon CV
             </a>
-            <hr style={{ width: "100%" }} />
-            <a href="https://www.figma.com/proto/FUUidIH4KCjapVE2AGV6or/MAQUETTE-PORTFOLIO-VERSION-2?node-id=81-2605&starting-point-node-id=1%3A5&scaling=scale-down&mode=design&t=hFr8ADpEK9ZO5Wc0-1"
-              target="_blank" rel="noreferrer"
-              title="Voir la maquette de ce portfolio sur Figma"
-            >
-              Voir la maquette de ce portfolio
-            </a>
+
           </div>
         </div>
         {currentContactVideo === 'lookAround' ?

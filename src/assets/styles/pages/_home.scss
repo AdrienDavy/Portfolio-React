@@ -5,7 +5,7 @@
   @include align-items;
   .mode {
     position: fixed;
-    top: 8%;
+    top: 75px;
     right: 2%;
     font-family: $font;
     font-size: clamp(12px, 1vw, 16px);
@@ -16,7 +16,9 @@
     border: none;
     cursor: pointer;
     z-index: 100;
-
+    @include sm {
+      top: 100px;
+    }
     span {
       transition: all 350ms ease;
       text-shadow: 0 0 0 $tertiary, 0 0 0 $tertiary, 0 0 0 $tertiary,
@@ -27,10 +29,59 @@
         0 0 100px $tertiary;
     }
   }
-  video {
-    opacity: 1;
-    animation: fade 2s ease-in-out;
-
+  .about-container {
+    .launch-about-background {
+      top: 0;
+      left: 0;
+      display: flex;
+      place-items: center;
+      width: 100dvw;
+      height: 100dvh;
+      position: fixed;
+      background-color: rgba($secondary, 0.8);
+      opacity: 1;
+      z-index: 5;
+      transition: all 1s ease;
+      &.hide {
+        opacity: 0;
+      }
+      .launch-about {
+        padding: 20px;
+        p {
+          color: $primary;
+          font-family: $font;
+          text-transform: uppercase;
+          font-size: 1rem;
+          font-style: normal;
+          font-weight: 300;
+          line-height: normal;
+          letter-spacing: 0.5rem;
+          padding-left: 0.5rem;
+          border-bottom: none !important;
+          cursor: pointer;
+          @include align-items;
+          border: none;
+          @include xl {
+            font-size: 0.8rem;
+            letter-spacing: 0.6rem;
+            padding-left: 0.6rem;
+            width: 140px;
+            height: 30px;
+          }
+          @include md {
+            font-size: 0.6rem;
+            letter-spacing: 0.2rem;
+            padding-left: 0.2rem;
+            width: 120px;
+            height: 20px;
+          }
+        }
+      }
+    }
+    video {
+      opacity: 1;
+      animation: fade 2s ease-in-out;
+    }
     @include sm {
       height: 50%;
     }
