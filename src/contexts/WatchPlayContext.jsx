@@ -8,8 +8,8 @@ export function useWatchPlay() {
 }
 
 export function WatchPlayProvider({ children }) {
-  const [isAboutPlayed, setIsAboutPlayed] = useState(true);
-  const [isContactPlayed, setIsContactPlayed] = useState(true);
+  const [isAboutPlayed, setIsAboutPlayed] = useState(false);
+  const [isContactPlayed, setIsContactPlayed] = useState(false);
   const [currentVideo, setCurrentVideo] = useState(null);
   const [currentContactVideo, setCurrentContactVideo] = useState(null);
   const value = React.useMemo(() => ({ isAboutPlayed, setIsAboutPlayed, isContactPlayed, setIsContactPlayed, currentVideo, setCurrentVideo, currentContactVideo, setCurrentContactVideo }), [isAboutPlayed, setIsAboutPlayed, isContactPlayed, setIsContactPlayed, currentVideo, setCurrentVideo, currentContactVideo, setCurrentContactVideo]);

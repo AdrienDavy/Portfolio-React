@@ -88,7 +88,7 @@ const Navbar = () => {
   return (
     <>
       <TargetStyle />
-      <div onClick={toggleMuteButton}>
+      <div onClick={toggleMuteButton} title={isMuted ? "Activer le son sur le site" : "Désactiver le son sur le site"}>
         {isMuted ? <img src={muteIcon} alt="Sound On button" className={playAnimation ? 'toggleMute hide' : 'toggleMute'} /> : <img src={soundOnIcon} alt="Mute button" className={playAnimation ? 'toggleMute hide' : 'toggleMute'} />}
       </div>
       <audio type="audio/mpeg" ref={!isMuted ? selectSoundRef : null} src={selectSound ? selectSound : null} style={{ display: "none" }} ></audio>
