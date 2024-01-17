@@ -128,7 +128,7 @@ const VideoPlayer = () => {
             </div >
             <div className={playAnimation ? "thumbnail-filter hide" : "thumbnail-filter"} onClick={() => { handleTogglePlayPause(), responsiveToggleLibraryButton() }}  ></div>
             <img src={selectedVideo?.thumbnail} alt={selectedVideo?.title} className={playAnimation ? "thumbnail hide" : "thumbnail"} />
-            <video rel="preload" ref={videoRef} src={selectedVideo?.video} muted={isMuted ? true : false} controls className="current-video" />
+            <video preload="auto" ref={videoRef} src={selectedVideo?.video} muted={isMuted ? true : false} controls className="current-video" />
             <div className={playAnimation ? "back-button" : "back-button hide"} title="Retour à la librarie" onClick={() => handleTogglePlayPause()} >
               <img src={backtoLibrary} alt="Back to Library" />
             </div>
