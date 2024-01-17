@@ -1,6 +1,7 @@
 import FormTemplate from "@components/FormTemplate"
 import contact from '@videoSources/contact.mp4';
 import lookAround from '@videoSources/lookaround.mp4';
+import cv from "../assets/img/adrien_davy_cv.pdf";
 import { useTransitionPage } from "../contexts/TransitionContext";
 import { motion } from "framer-motion";
 import { useSound } from "../contexts/soundContext";
@@ -54,10 +55,9 @@ const Contact = () => {
           <h1>Contactez moi</h1>
           <FormTemplate />
           <div className="cv-container">
-            <a href="cv.pdf" target="_blank" rel="noreferrer" download="CV Adrien Davy 2023 - Développeur Web et Web Mobile.pdf" title="Télécharger mon CV">
+            <a href={cv} target="_blank" rel="noreferrer" download="adrien_davy_cv.pdf" title="Télécharger mon CV">
               Télécharger mon CV
             </a>
-
           </div>
         </div>
         {currentContactVideo === 'lookAround' ?
