@@ -10,6 +10,7 @@ import { TargetProvider } from "@contexts/TargetContext";
 import { SoundProvider } from "@contexts/soundContext";
 import { TransitionPageProvider } from "@contexts/TransitionContext";
 import { WatchPlayProvider } from "./contexts/watchPlayContext";
+import ErrorPage from "./pages/ErrorPage";
 function App() {
   return (
     <WatchPlayProvider>
@@ -25,6 +26,7 @@ function App() {
                   <Route path="/devweb" element={<Devweb />} />
                   <Route path="/videos" element={<Videos />} />
                   <Route path="/contact" element={<Contact />} />
+                  <Route path="*" element={<ErrorPage />} />
                 </Routes>
               </main>
             </TransitionPageProvider>
