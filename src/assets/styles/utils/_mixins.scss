@@ -72,7 +72,7 @@
   font-size: clamp(22px, 1.6vw, 32px);
   font-style: normal;
   font-weight: 700;
-  line-height: 30em;
+  line-height: 25em;
   @include sm {
     font-size: clamp(10px, 1vw, 16px);
     line-height: unset;

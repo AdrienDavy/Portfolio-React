@@ -1,0 +1,36 @@
+.error-container {
+  display: grid;
+  place-items: center;
+  height: 100dvh;
+
+  .error-message {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    background-color: rgba($secondary, 0.7);
+    padding: 15%;
+    p:nth-of-type(1) {
+      color: $tertiary;
+      @include p;
+      font-size: larger;
+      text-shadow: 0 0 5px rgba(lighten($tertiary, 10%), 0.7);
+    }
+    p:nth-of-type(2) {
+      color: $tertiary;
+      @include p;
+      margin-bottom: 10px;
+      text-shadow: 0 0 5px rgba($tertiary, 0.7);
+    }
+    button {
+      border: none;
+      p {
+        input {
+          text-align: center;
+          background: transparent;
+          letter-spacing: 0;
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}
